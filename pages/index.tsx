@@ -2,29 +2,16 @@ import type { NextPage } from 'next'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import client from '@/helpers/shopify-client'
 import styles from '@/styles/index.module.scss'
-import { useEffect, useState } from 'react'
+import useLoadingUrl from '@/hooks/useLoadingUrl'
 
-function ProductCard(props: any) {
-  console.log(props)
-  return (
-    <div className={styles.productCard}>
-      <div>
-        {props.images.map((image: any) => (
-          <Image key={image.id} objectFit='cover' src={client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})} alt={image.altText} layout='fill' />
-        ))}
-      </div>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </div>
-  )
-}
+import ProductCard from '@/components/ProductCard'
 
 const Home: NextPage = (props: any) => {
-  console.log(props)
+  const loadingUrl = useLoadingUrl()
+
   return (
     <>
       <Head>
@@ -37,7 +24,7 @@ const Home: NextPage = (props: any) => {
         {props.products.map((product: any) => (
           <Link key={product.id} href={`/product/${product.id}`}>
             <a>
-              <ProductCard {...product} />
+              <ProductCard {...product} loading={loadingUrl === `/product/${product.id}`} />
             </a>
           </Link>
         ))}
@@ -48,6 +35,9 @@ const Home: NextPage = (props: any) => {
 
 export default Home
 
+// This function runs before the page is rendered
+// Use to get all product information
+// (You can get specific types of products, e.g. onSale, frontPage, etc)
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const products = await client.product.fetchAll() // Fetch product
   const info = await client.shop.fetchInfo() // Fetch shop Info if you think about SEO and title and ... to your page
