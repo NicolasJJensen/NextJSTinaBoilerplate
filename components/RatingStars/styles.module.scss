@@ -1,0 +1,55 @@
+.starRating {
+  --star-color: var(--star-yellow);
+  --background-star-color: lightgray;
+  --star-size: 1.5rem;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .starIcons {
+    display: flex;
+    flex-wrap: nowrap;
+  
+    .fullStar {
+      .iconify {
+        font-size: var(--star-size);
+        color: var(--star-color);
+      }
+    }
+  
+    .partStar {
+      @extend .fullStar;
+  
+      position: relative;
+  
+      div {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+      }
+  
+      & > .iconify {
+        color: var(--background-star-color);
+      }
+    }
+  
+    .grayStar {
+      @extend .fullStar;
+      .iconify {
+        color: var(--background-star-color);
+      }
+    }
+  }
+
+  .ratingInfo {
+    display: flex;
+    flex-wrap: nowrap;
+
+    a {
+      white-space: nowrap;
+    }
+  }
+}
+
