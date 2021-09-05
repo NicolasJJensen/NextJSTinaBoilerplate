@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
+import RatingStars from '@/components/RatingStars'
+
 const Test: NextPage = (props: any) => {
 
   return (
@@ -12,7 +14,7 @@ const Test: NextPage = (props: any) => {
       </Head>
 
       <main>
-        TEST
+        <RatingStars rating={3.8} reviews={13} />
       </main>
     </>
   )
