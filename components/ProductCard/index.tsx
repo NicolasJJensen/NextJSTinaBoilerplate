@@ -19,11 +19,13 @@ export default function ProductCard(props: propsType) {
   return (
     <div className={styles.productCard}>
       <div>
-        {props.images.map((image: any) => (
+        {props.images.map(image => (
           <Image
             key={image.id}
-            // @ts-expect-error
-            src={client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})}
+            // // @ts-expect-error
+            // client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})
+            loader={() => image.src}
+            src={image.src}
             alt={image.altText}
             layout='fill'
             objectFit='cover'

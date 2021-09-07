@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.shopify.com'],
+    domains: ['cdn.shopify.com', 'source.unsplash.com'],
   }
 }
