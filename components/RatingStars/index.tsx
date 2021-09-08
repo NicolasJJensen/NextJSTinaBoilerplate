@@ -4,16 +4,19 @@ import styles from "./styles.module.scss"
 type propsType = {
   rating: number,
   reviews: number,
-  icon?: string,
+  icon: string,
   starColor?: string,
   backgroundStarColor?: string
+}
+
+const defaultProps = {
+  icon: "ant-design:star-filled"
 }
 
 const RatingStars = (props: propsType) => {
   const ratingRemainder = props.rating % 1
   const ratingFull = props.rating - ratingRemainder
   const grayStars = 5 - Math.ceil(props.rating)
-  const icon = props.icon || "ant-design:star-filled"
 
   return (
     <span
@@ -26,20 +29,22 @@ const RatingStars = (props: propsType) => {
       <span className={styles.starIcons}>
         {Array(ratingFull).fill(null).map((_, i) => (
           <span className={styles.fullStar} key={i}>
-            <Icon className={styles.iconify} icon={icon}/>
+            <Icon className={styles.iconify} icon={props.icon}/>
           </span>
         ))}
 
-        <span className={styles.partStar}>
-          <Icon className={styles.iconify} icon={icon}/>
-          <div style={{width: `${ratingRemainder * 100}%`}}>
-            <Icon className={styles.iconify} icon={icon}/>
-          </div>
-        </span>
+        {Boolean(ratingRemainder) && (
+          <span className={styles.partStar}>
+            <Icon className={styles.iconify} icon={props.icon}/>
+            <div style={{width: `${ratingRemainder * 100}%`}}>
+              <Icon className={styles.iconify} icon={props.icon}/>
+            </div>
+          </span>
+        )}
 
         {Array(grayStars).fill(null).map((_, i) => (
           <span className={styles.grayStar} key={i}>
-            <Icon className={styles.iconify} icon={icon}/>
+            <Icon className={styles.iconify} icon={props.icon}/>
           </span>
         ))}
       </span>
@@ -50,5 +55,7 @@ const RatingStars = (props: propsType) => {
     </span>
   )
 }
+
+RatingStars.defaultProps = defaultProps
 
 export default RatingStars
