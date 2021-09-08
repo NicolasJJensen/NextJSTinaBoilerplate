@@ -1,0 +1,47 @@
+.wrapper {
+  --filter-height: 80px;
+  --filter-color: var(--dark1-rgb);
+
+  position: relative;
+  display: flex;
+  width: max-content;
+  overflow: hidden;
+
+  .filterButton {
+    position: absolute;
+    width: 100%;
+    height: var(--filter-height);
+    bottom: 0;
+    transform: translateY(100%);
+    background-color: rgba(var(--filter-color), 0.6);
+    transition: all 0.2s ease;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      color: white;
+      border: 2px solid white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: var(--font-weight-medium);
+
+      &:hover {
+        background: white;
+        color: rgb(var(--filter-color));
+      }
+    }
+  }
+
+
+  &:hover {
+  
+    .filterButton {
+      transform: translateY(0%);
+
+    }
+  }
+
+}
