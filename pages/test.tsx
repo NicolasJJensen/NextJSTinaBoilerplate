@@ -2,7 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import RatingStars from '@/components/RatingStars'
-import HoverFilterButton from '@/components/hoverFilterButton'
+import HoverFilterButton from '@/components/HoverFilterButton'
+import ProductCard from '@/components/ProductCard'
 import Image from 'next/image'
 
 const Test: NextPage = (props: any) => {
@@ -27,10 +28,11 @@ const Test: NextPage = (props: any) => {
             loader={myLoader}
             src="https://d2j6dbq0eux0bg.cloudfront.net/images/2047086/2305759774.jpg"
             alt=''
-            height={500}
-            width={500}
+            height={300}
+            width={300}
           />
         </HoverFilterButton>
+
       </main>
     </>
   )

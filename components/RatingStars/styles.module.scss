@@ -47,6 +47,10 @@
     display: flex;
     flex-wrap: nowrap;
 
+    span {
+      color: var(--text-dark);
+    }
+
     a {
       white-space: nowrap;
     }

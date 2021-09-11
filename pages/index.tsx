@@ -9,6 +9,7 @@ import useLoadingUrl from '@/hooks/useLoadingUrl'
 
 import ProductCard from '@/components/ProductCard'
 
+
 const Home: NextPage = (props: any) => {
   const loadingUrl = useLoadingUrl()
 
@@ -24,7 +25,7 @@ const Home: NextPage = (props: any) => {
         {props.products.map((product: any) => (
           <Link key={product.id} href={`/product/${product.id}`}>
             <a>
-              <ProductCard {...product} loading={loadingUrl === `/product/${product.id}`} />
+              <ProductCard {...product} new={true} outOfStock={true} sale={true} loading={loadingUrl === `/product/${product.id}`} />
             </a>
           </Link>
         ))}

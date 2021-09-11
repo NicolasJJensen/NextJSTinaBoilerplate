@@ -7,6 +7,10 @@
   width: max-content;
   overflow: hidden;
 
+  img {
+    object-fit: cover;
+  }
+
   .filterButton {
     position: absolute;
     width: 100%;

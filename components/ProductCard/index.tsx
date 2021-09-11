@@ -2,9 +2,16 @@ import Image from 'next/image'
 
 import client from '@/helpers/shopify-client'
 import styles from './productCard.module.scss'
+import RatingStars from '@/components/RatingStars'
+import SaleTag from '@/components/SaleTag'
+import OutOfStockTag from '../OutOfStockTag'
+import NewTag from '../NewTag'
 
 type propsType = {
   loading: boolean,
+  outOfStock: boolean,
+  sale: boolean,
+  new: boolean,
   images: Array<{
     id: string,
     src: string,
@@ -15,25 +22,38 @@ type propsType = {
   description: string
 }
 
+const defaultProps = {
+  outOfStock: false,
+  sale: false,
+  new: false,
+}
+
+ProductCard.defaultProps = defaultProps
+
 export default function ProductCard(props: propsType) {
   return (
     <div className={styles.productCard}>
-      <div>
-        {props.images.map(image => (
+      <div className={styles.imgDiv}>
+        {props.images.slice(-2).reverse().map(image => (
           <Image
-            key={image.id}
-            // // @ts-expect-error
-            // client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})
-            loader={() => image.src}
-            src={image.src}
-            alt={image.altText}
-            layout='fill'
-            objectFit='cover'
+          key={image.id}
+          // // @ts-expect-error
+          // client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})
+          loader={() => image.src}
+          src={image.src}
+          alt={image.altText}
+          layout='fill'
+          objectFit='cover'
           />
-        ))}
+          ))}
+          { props.sale ? <SaleTag /> : '' }
+          { props.outOfStock ? <OutOfStockTag /> : '' }
+          { props.new ? <NewTag /> : '' }
       </div>
-      <h2>{props.loading ? 'Loading...' : props.title}</h2>
-      <p>{props.loading ? 'Loading...' : props.description}</p>
+      <div className={styles.titleRating}>
+        <span className={styles.heading}>{props.loading ? 'Loading...' : props.title}</span>
+        <RatingStars rating={3.5} reviews={13} />
+      </div>
     </div>
   )
 }

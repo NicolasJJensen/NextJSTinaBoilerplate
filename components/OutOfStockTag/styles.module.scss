@@ -1,0 +1,29 @@
+.outOfStockTag {
+  --out-of-stock-tag-height: 30px;
+  --out-of-stock-tag-font-size: 1rem;
+  
+  --out-of-stock-tag-color: var(--logo-primary);
+  --out-of-stock-tag-text-color: white;
+  
+  @media only screen and (max-width: 1007px) {
+    --out-of-stock-tag-height: 25px;
+    --out-of-stock-tag-font-size: 0.75rem;
+  }
+
+  padding: 0 20px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+
+  display: flex;
+  align-items: center;
+
+  height: var(--out-of-stock-tag-height);
+  width: max-content;
+
+  font-size: var(--out-of-stock-tag-font-size);
+
+  background-color: var(--out-of-stock-tag-color);
+  color: var(--out-of-stock-tag-text-color);
+}

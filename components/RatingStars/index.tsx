@@ -3,8 +3,8 @@ import styles from "./styles.module.scss"
 
 type propsType = {
   rating: number,
-  reviews: number,
-  icon: string,
+  reviews?: number,
+  icon?: string,
   starColor?: string,
   backgroundStarColor?: string
 }

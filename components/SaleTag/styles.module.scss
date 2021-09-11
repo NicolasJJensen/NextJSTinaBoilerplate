@@ -1,0 +1,41 @@
+
+.saleTag {
+  --sale-tag-height: 30px;
+  --sale-tag-margin-top: 20px;
+  --sale-tag-font-size: 1rem;
+
+  --sale-tag-color: var(--logo-primary);
+  --sale-tag-text-color: white;
+
+  @media only screen and (max-width: 1007px) {
+    --sale-tag-height: 25px;
+    --sale-tag-margin-top: 10px;
+    --sale-tag-font-size: 0.75rem;
+  }
+
+  
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: var(--sale-tag-height);
+  width: max-content;
+  margin-top: var(--sale-tag-margin-top);
+
+  .tagSpikes {
+    width: var(--sale-tag-height);
+
+    svg {
+      fill: var(--sale-tag-color);
+    }
+  }
+
+  .wordSpan {
+    background-color: var(--sale-tag-color);
+    color: var(--sale-tag-text-color);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    font-size: var(--sale-tag-font-size);
+  }
+}
