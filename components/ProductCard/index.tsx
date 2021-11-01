@@ -1,17 +1,20 @@
-import Image from 'next/image'
+import Image from '@/components/Image'
 
 import client from '@/helpers/shopify-client'
 import styles from './productCard.module.scss'
 import RatingStars from '@/components/RatingStars'
-import SaleTag from '@/components/SaleTag'
-import OutOfStockTag from '../OutOfStockTag'
-import NewTag from '../NewTag'
+
+import SaleTag from '@/components/Tags/SaleTag'
+import OutOfStockTag from '../Tags/OutOfStockTag'
+import NewTag from '../Tags/NewTag'
+import BestSellerTag from '@/components/Tags/BestSellerTag'
 
 type propsType = {
   loading: boolean,
   outOfStock: boolean,
   sale: boolean,
   new: boolean,
+  bestSeller: boolean,
   images: Array<{
     id: string,
     src: string,
@@ -19,13 +22,14 @@ type propsType = {
   }>,
   id: string,
   title: string,
-  description: string
+  description: string,
 }
 
 const defaultProps = {
   outOfStock: false,
   sale: false,
   new: false,
+  bestSeller: false
 }
 
 ProductCard.defaultProps = defaultProps
@@ -39,16 +43,13 @@ export default function ProductCard(props: propsType) {
           key={image.id}
           // // @ts-expect-error
           // client.image.helpers.imageForSize(image, {maxWidth: 500, maxHeight: 500})
-          loader={() => image.src}
           src={image.src}
           alt={image.altText}
-          layout='fill'
-          objectFit='cover'
           />
           ))}
           { props.sale ? <SaleTag /> : '' }
           { props.outOfStock ? <OutOfStockTag /> : '' }
-          { props.new ? <NewTag /> : '' }
+          { props.bestSeller ? <BestSellerTag /> : props.new ? <NewTag /> : '' }
       </div>
       <div className={styles.titleRating}>
         <span className={styles.heading}>{props.loading ? 'Loading...' : props.title}</span>

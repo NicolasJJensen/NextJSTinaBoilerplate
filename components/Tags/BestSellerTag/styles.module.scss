@@ -1,0 +1,36 @@
+@import '../tagStyles.module.scss';
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  margin-left: var(--left-margin);
+
+  .tagSpike {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    svg {
+      height: 100%;
+      width: 100%;
+      transform: translateY(100%);
+      fill: var(--tag-color);
+    }
+  }
+
+  .wordDiv {
+    background-color: var(--tag-color);
+    color: var(--tag-text-color);
+    padding: 2px var(--x-padding) 0px var(--x-padding);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: var(--tag-font-size);
+    line-height: 1.2;
+  }
+}

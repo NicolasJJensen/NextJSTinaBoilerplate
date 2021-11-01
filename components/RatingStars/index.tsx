@@ -4,7 +4,7 @@ import styles from "./styles.module.scss"
 type propsType = {
   rating: number,
   reviews?: number,
-  icon?: string,
+  icon: string,
   starColor?: string,
   backgroundStarColor?: string
 }

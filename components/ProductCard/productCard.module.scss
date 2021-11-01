@@ -1,18 +1,16 @@
-.productCard {
-  --min-img-width: 150px;
-  --max-img-width: 400px;
-  --w-h-ratio: 0.75;
+@import '../Image/styles.module.scss';
 
-  --img-width: max(var(--min-img-width), min(calc(var(--w-h-ratio) * 30vw), var(--max-img-width)));
-  --img-height: max(calc(var(--min-img-width) / var(--w-h-ratio)), min(30vw, calc(var(--max-img-width) / var(--w-h-ratio))));
+.productCard {
+  --font-size: 1rem;
+
+  @media only screen and (max-width: 1007px) {
+    --font-size: 0.75rem;
+  }
 
   display: inline-block;
   overflow: hidden;
 
   .imgDiv {
-    position: relative;
-    width: var(--img-width);
-    height: var(--img-height);
 
     margin-bottom: max(15px, min(1.5vw, 20px));
 
@@ -25,20 +23,20 @@
       }
     }
 
-    div:nth-child(2) {
+    & > div:nth-child(2) {
       transition: opacity 0.2s ease-in;
       opacity: 1;
     }
 
     &:hover {
-      div:nth-child(1) {
+      & > div:nth-child(1) {
         img {
           transform: scale(1);
           transition: transform 0.2s ease-in;
         }
       }
 
-      div:nth-child(2) {
+      & > div:nth-child(2) {
         transition: opacity 0.2s ease-in;
         opacity: 0;
       }
@@ -50,6 +48,7 @@
     width: var(--img-width);
 
     .heading {
+      font-size: var(--font-size);
       font-weight: var(--font-weight-medium);
       color: var(--text-dark);
       margin-bottom: 5px;

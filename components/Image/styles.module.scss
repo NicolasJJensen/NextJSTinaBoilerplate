@@ -1,0 +1,20 @@
+.imageWrapper {
+  --min-img-width: 150px;
+  --max-img-width: 400px;
+  --w-h-ratio: 1;
+  
+  --img-width: max(var(--min-img-width), min(calc(var(--w-h-ratio) * 30vw), var(--max-img-width)));
+  --img-height: max(calc(var(--min-img-width) / var(--w-h-ratio)), min(30vw, calc(var(--max-img-width) / var(--w-h-ratio))));
+
+  width: var(--img-width);
+  height: var(--img-height);
+
+  position: relative;
+}
+
+.imageBorder {
+  --border-color: var(--logo-secondary);
+
+  padding: max(4px, min(1vw, 8px));
+  border: 1px solid var(--border-color);
+}

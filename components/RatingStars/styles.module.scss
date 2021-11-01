@@ -2,6 +2,16 @@
   --star-color: var(--star-yellow);
   --background-star-color: lightgray;
   --star-size: 1.5rem;
+  --font-size: 1rem;
+
+  @media only screen and (max-width: 1007px) {
+    --font-size: 0.85rem;
+  }
+
+  @media only screen and (max-width: 640px) {
+    --font-size: 0.75rem;
+
+  }
 
   display: inline-flex;
   flex-wrap: wrap;
@@ -46,6 +56,7 @@
   .ratingInfo {
     display: flex;
     flex-wrap: nowrap;
+    font-size: var(--font-size);
 
     span {
       color: var(--text-dark);

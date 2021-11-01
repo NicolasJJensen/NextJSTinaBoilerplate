@@ -4,7 +4,7 @@ import styles from "./styles.module.scss"
 const SaleTag = () => {
 
   return (
-    <div className={styles.saleTag}>
+    <div className={styles.tag}>
       <span className={styles.tagSpikes}>
         <svg viewBox="0 0 100 100">
           <polygon points="100 100 100 50 50 100 100 100"/>
