@@ -25,7 +25,7 @@ const Home: NextPage = (props: any) => {
         {/* {props.products.map((product: any) => (
           <Link key={product.id} href={`/product/${product.id}`}>
             <a>
-              <ProductCard {...product} new={true} outOfStock={true} sale={true} loading={loadingUrl === `/product/${product.id}`} />
+              <ProductCard {...product} new={true} outOfStock={true} sale={true} bestSeller={false} whRatio={0.75} loading={loadingUrl === `/product/${product.id}`} />
             </a>
           </Link>
         ))} */}

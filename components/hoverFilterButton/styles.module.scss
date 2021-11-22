@@ -1,15 +1,31 @@
 .wrapper {
   --filter-height: 80px;
   --filter-color: var(--dark1-rgb);
+  
+  --font-size: 1rem;
+  
+  --button-padding: 0.5rem 1rem;
+  
+  @media only screen and (max-width: 1007px) {
+    --filter-height: 65px;
+    --font-size: 0.8rem;
+    --button-padding: 0.35rem 0.85rem;
+  }
+  
+  @media only screen and (max-width: 640px) {
+    --filter-height: 50px;
+    --font-size: 0.75rem;
+    --button-padding: 0.2rem 0.8rem;
+
+  }
 
   position: relative;
   display: flex;
   width: max-content;
   overflow: hidden;
 
-  img {
-    object-fit: cover;
-  }
+  height: 100%;
+  width: 100%;
 
   .filterButton {
     position: absolute;
@@ -27,10 +43,11 @@
 
     span {
       color: white;
-      border: 2px solid white;
-      padding: 0.5rem 1rem;
+      border: 1px solid white;
+      padding: var(--button-padding);
       border-radius: 6px;
       font-weight: var(--font-weight-medium);
+      font-size: var(--font-size);
 
       &:hover {
         background: white;
@@ -47,5 +64,4 @@
 
     }
   }
-
 }

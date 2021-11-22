@@ -1,0 +1,20 @@
+@import '../tagStyles.module.scss';
+
+.tag {
+  padding: 0 20px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+
+  display: flex;
+  align-items: center;
+
+  height: var(--tag-height);
+  width: max-content;
+
+  font-size: var(--tag-font-size);
+
+  background-color: var(--tag-color);
+  color: var(--tag-text-color);
+}

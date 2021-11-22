@@ -2,15 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import RatingStars from '@/components/RatingStars'
-import HoverFilterButton from '@/components/HoverFilterButton'
 import ProductCard from '@/components/ProductCard'
-import Image from 'next/image'
+import Image from '@/components/Image'
 import { staticRequest } from 'tinacms'
 
 const Test: NextPage = (props: any) => {
-  const myLoader=()=>{
-    return 'https://d2j6dbq0eux0bg.cloudfront.net/images/2047086/2305759774.jpg'
-  }
 
   return (
     <>
@@ -21,18 +17,15 @@ const Test: NextPage = (props: any) => {
       </Head>
 
       <main>
-        <RatingStars rating={3.8} reviews={13} />
-        
-        <HoverFilterButton>
-          <Image 
-            loader={myLoader}
-            src="https://d2j6dbq0eux0bg.cloudfront.net/images/2047086/2305759774.jpg"
-            alt=''
-            height={300}
-            width={300}
-          />
-        </HoverFilterButton>
-
+        <Image 
+          src="https://d2j6dbq0eux0bg.cloudfront.net/images/2047086/2305759774.jpg"
+          alt=''
+          hoverButton={false}
+          border={true}
+          minImgWidth={300}
+          maxImgWidth={650}
+          whRatio={12/9}
+        />
       </main>
     </>
   )
