@@ -11,7 +11,7 @@ const carouselTemplate: TinaTemplate = {
     },
     {
       label: 'Y',
-      name: 'x',
+      name: 'y',
       type: 'number'
     },
     {
