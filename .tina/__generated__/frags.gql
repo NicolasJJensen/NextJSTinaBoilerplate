@@ -1,0 +1,61 @@
+fragment NavbarParts on Navbar {
+  navbarLinks {
+    __typename
+    label
+    url
+  }
+}
+
+fragment HomePageContentParts on HomePageContent {
+  sections {
+    __typename
+    ... on HomePageContentSectionsCarousel {
+      x
+      x
+      images
+      mainText
+      description
+      button {
+        __typename
+        text
+        url
+      }
+      delay
+    }
+    ... on HomePageContentSectionsGuarantees {
+      badges {
+        __typename
+        icon
+        text
+      }
+    }
+    ... on HomePageContentSectionsCollectionList {
+      collection
+      numImages
+      numColumns
+      numRows
+    }
+    ... on HomePageContentSectionsCollectionListDisplay {
+      titleText
+      collections
+    }
+    ... on HomePageContentSectionsSocialMediaIntegration {
+      socialMedia
+      numImages
+      numColumns
+      numRows
+    }
+  }
+}
+
+fragment FooterParts on Footer {
+  navSections {
+    __typename
+    links {
+      __typename
+      label
+      url
+    }
+    title
+  }
+}

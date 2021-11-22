@@ -1,0 +1,116 @@
+query getNavbarDocument($relativePath: String!) {
+  getNavbarDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...NavbarParts
+    }
+  }
+}
+
+query getNavbarList {
+  getNavbarList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...NavbarParts
+        }
+      }
+    }
+  }
+}
+
+query getHomePageContentDocument($relativePath: String!) {
+  getHomePageContentDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...HomePageContentParts
+    }
+  }
+}
+
+query getHomePageContentList {
+  getHomePageContentList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...HomePageContentParts
+        }
+      }
+    }
+  }
+}
+
+query getFooterDocument($relativePath: String!) {
+  getFooterDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...FooterParts
+    }
+  }
+}
+
+query getFooterList {
+  getFooterList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...FooterParts
+        }
+      }
+    }
+  }
+}

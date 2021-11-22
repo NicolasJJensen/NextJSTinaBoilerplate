@@ -5,9 +5,9 @@ import RatingStars from '@/components/RatingStars'
 import HoverFilterButton from '@/components/HoverFilterButton'
 import ProductCard from '@/components/ProductCard'
 import Image from 'next/image'
+import { staticRequest } from 'tinacms'
 
 const Test: NextPage = (props: any) => {
-
   const myLoader=()=>{
     return 'https://d2j6dbq0eux0bg.cloudfront.net/images/2047086/2305759774.jpg'
   }
@@ -39,3 +39,44 @@ const Test: NextPage = (props: any) => {
 }
 
 export default Test
+
+export async function getStaticProps() {
+  const query = `#graphql
+    query PageQuery($relativePath: String!) {
+      getNavbarDocument(relativePath: "navbar.json") {
+        data {
+          navbarLinks {
+            label
+            url
+          }
+        }
+      }
+      getFooterDocument(relativePath: "footer.json") {
+        data {
+          navSections {
+            title
+            links {
+              label
+              url
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const variables = { relativePath: 'test.json' }
+
+  const data: any = await staticRequest({
+    query: query,
+    variables: variables
+  })
+
+  return {
+    props: {
+      query,
+      variables,
+      data,
+    }
+  }
+}

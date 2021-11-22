@@ -1,4 +1,4 @@
-import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react'
 import styles from "./styles.module.scss"
 
 type propsType = {
