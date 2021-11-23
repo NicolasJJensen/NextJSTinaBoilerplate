@@ -55,9 +55,9 @@ const carouselTemplate: TinaTemplate = {
   ],
 }
 
-const guaranteesTemplate: TinaTemplate = {
-  label: 'Guarantees',
-  name: 'guarantees',
+const trustIconsTemplate: TinaTemplate = {
+  label: 'Trust Icons',
+  name: 'trustIcons',
   fields: [
     {
       label: 'Badges',
@@ -80,9 +80,9 @@ const guaranteesTemplate: TinaTemplate = {
   ],
 }
 
-const collectionDisplayTemplate: TinaTemplate = {
-  label: 'Collection List',
-  name: 'collectionList',
+const singleCollectionPreviewTemplate: TinaTemplate = {
+  label: 'Single Collection Preview',
+  name: 'singleCollectionPreview',
   fields: [
     {
       label: 'Collection',
@@ -94,22 +94,12 @@ const collectionDisplayTemplate: TinaTemplate = {
       name: 'numImages',
       type: 'number',
     },
-    {
-      label: 'Nº Columns',
-      name: 'numColumns',
-      type: 'number',
-    },
-    {
-      label: 'Nº Rows',
-      name: 'numRows',
-      type: 'number',
-    },
   ],
 }
 
-const CollectionListDisplayTemplate: TinaTemplate = {
-  label: 'Collection List Display',
-  name: 'collectionListDisplay',
+const multipleCollectionsPreviewTemplate: TinaTemplate = {
+  label: 'Multiple Collections Preview',
+  name: 'multipleCollectionsPreview',
   fields: [
     {
       label: 'Title Text',
@@ -140,15 +130,76 @@ const SocialMediaIntegrationTemplate: TinaTemplate = {
       name: 'numImages',
       type: 'number',
     },
+  ],
+}
+
+const testimonialsTemplate: TinaTemplate = {
+  label: 'Testimonials',
+  name: 'testimonials',
+  fields: [
     {
-      label: 'Nº Columns',
-      name: 'numColumns',
-      type: 'number',
+      label: 'Title Text',
+      name: 'titleText',
+      type: 'string',
     },
     {
-      label: 'Nº Rows',
-      name: 'numRows',
-      type: 'number',
+      label: 'User Testimonials',
+      name: 'userTestimonials',
+      type: 'object',
+      list: true,
+      fields: [
+        {
+          label: 'Quote',
+          name: 'quote',
+          type: 'string',
+        },
+        {
+          label: 'User',
+          name: 'user',
+          type: 'string',
+        },
+        {
+          label: 'Website',
+          name: 'website',
+          type: 'string',
+        },
+        {
+          label: 'Date',
+          name: 'date',
+          type: 'string',
+        },
+      ],
+    },
+  ],
+}
+
+const alternatingImageBlocksTemplate: TinaTemplate = {
+  label: 'Alternating Image Blocks',
+  name: 'alternatingImageBlocks',
+  fields: [
+    {
+      label: 'Image Blocks',
+      name: 'imageBlocks',
+      type: 'object',
+      list: true,
+      fields: [
+        {
+          label: 'Image',
+          name: 'image',
+          type: 'string',
+        },
+        {
+          label: 'Title Text',
+          name: 'titleText',
+          type: 'string',
+        },
+        { // TODO: Turn this into a rich text type instead so that there is more control over the formatting
+          label: 'Paragraphs',
+          name: 'paragraphs',
+          type: 'string',
+          list: true,
+        },
+      ],
     },
   ],
 }
@@ -166,10 +217,12 @@ const homePageCollection: TinaCollection = {
       list: true,
       templates: [
         carouselTemplate,
-        guaranteesTemplate,
-        collectionDisplayTemplate,
-        CollectionListDisplayTemplate,
+        trustIconsTemplate,
+        singleCollectionPreviewTemplate,
+        multipleCollectionsPreviewTemplate,
         SocialMediaIntegrationTemplate,
+        testimonialsTemplate,
+        alternatingImageBlocksTemplate,
       ],
     },
   ],

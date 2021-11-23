@@ -1,3 +1,17 @@
 {
-  
+  "sections": [
+    {
+      "badges": [
+        {
+          "icon": "Shipping Icon",
+          "text": "Shipping"
+        },
+        {
+          "icon": "Test Icon",
+          "text": "Paypal"
+        }
+      ],
+      "_template": "trustIcons"
+    }
+  ]
 }

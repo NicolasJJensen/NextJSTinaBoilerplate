@@ -22,7 +22,7 @@
     "sass": "^1.39.0",
     "shopify-buy": "^2.12.0",
     "styled-components": "^5.3.3",
-    "tinacms": "^0.58.1"
+    "tinacms": "^0.59.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

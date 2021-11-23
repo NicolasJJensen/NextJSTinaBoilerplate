@@ -11,7 +11,7 @@ fragment HomePageContentParts on HomePageContent {
     __typename
     ... on HomePageContentSectionsCarousel {
       x
-      x
+      y
       images
       mainText
       description
@@ -22,28 +22,42 @@ fragment HomePageContentParts on HomePageContent {
       }
       delay
     }
-    ... on HomePageContentSectionsGuarantees {
+    ... on HomePageContentSectionsTrustIcons {
       badges {
         __typename
         icon
         text
       }
     }
-    ... on HomePageContentSectionsCollectionList {
+    ... on HomePageContentSectionsSingleCollectionPreview {
       collection
       numImages
-      numColumns
-      numRows
     }
-    ... on HomePageContentSectionsCollectionListDisplay {
+    ... on HomePageContentSectionsMultipleCollectionsPreview {
       titleText
       collections
     }
     ... on HomePageContentSectionsSocialMediaIntegration {
       socialMedia
       numImages
-      numColumns
-      numRows
+    }
+    ... on HomePageContentSectionsTestimonials {
+      titleText
+      userTestimonials {
+        __typename
+        quote
+        user
+        website
+        date
+      }
+    }
+    ... on HomePageContentSectionsAlternatingImageBlocks {
+      imageBlocks {
+        __typename
+        image
+        titleText
+        paragraphs
+      }
     }
   }
 }

@@ -116,6 +116,8 @@ type HomePageContentSectionsCarouselButton {
 }
 
 type HomePageContentSectionsCarousel {
+  x: Int
+  y: Int
   images: [String]
   mainText: String
   description: String
@@ -123,23 +125,21 @@ type HomePageContentSectionsCarousel {
   delay: Int
 }
 
-type HomePageContentSectionsGuaranteesBadges {
+type HomePageContentSectionsTrustIconsBadges {
   icon: String
   text: String
 }
 
-type HomePageContentSectionsGuarantees {
-  badges: [HomePageContentSectionsGuaranteesBadges]
+type HomePageContentSectionsTrustIcons {
+  badges: [HomePageContentSectionsTrustIconsBadges]
 }
 
-type HomePageContentSectionsCollectionList {
+type HomePageContentSectionsSingleCollectionPreview {
   collection: String
   numImages: Int
-  numColumns: Int
-  numRows: Int
 }
 
-type HomePageContentSectionsCollectionListDisplay {
+type HomePageContentSectionsMultipleCollectionsPreview {
   titleText: String
   collections: [String]
 }
@@ -147,11 +147,31 @@ type HomePageContentSectionsCollectionListDisplay {
 type HomePageContentSectionsSocialMediaIntegration {
   socialMedia: String
   numImages: Int
-  numColumns: Int
-  numRows: Int
 }
 
-union HomePageContentSections = HomePageContentSectionsCarousel | HomePageContentSectionsGuarantees | HomePageContentSectionsCollectionList | HomePageContentSectionsCollectionListDisplay | HomePageContentSectionsSocialMediaIntegration
+type HomePageContentSectionsTestimonialsUserTestimonials {
+  quote: String
+  user: String
+  website: String
+  date: String
+}
+
+type HomePageContentSectionsTestimonials {
+  titleText: String
+  userTestimonials: [HomePageContentSectionsTestimonialsUserTestimonials]
+}
+
+type HomePageContentSectionsAlternatingImageBlocksImageBlocks {
+  image: String
+  titleText: String
+  paragraphs: [String]
+}
+
+type HomePageContentSectionsAlternatingImageBlocks {
+  imageBlocks: [HomePageContentSectionsAlternatingImageBlocksImageBlocks]
+}
+
+union HomePageContentSections = HomePageContentSectionsCarousel | HomePageContentSectionsTrustIcons | HomePageContentSectionsSingleCollectionPreview | HomePageContentSectionsMultipleCollectionsPreview | HomePageContentSectionsSocialMediaIntegration | HomePageContentSectionsTestimonials | HomePageContentSectionsAlternatingImageBlocks
 
 type HomePageContent {
   sections: [HomePageContentSections]
@@ -244,6 +264,8 @@ input HomePageContentSectionsCarouselButtonMutation {
 }
 
 input HomePageContentSectionsCarouselMutation {
+  x: Int
+  y: Int
   images: [String]
   mainText: String
   description: String
@@ -251,23 +273,21 @@ input HomePageContentSectionsCarouselMutation {
   delay: Int
 }
 
-input HomePageContentSectionsGuaranteesBadgesMutation {
+input HomePageContentSectionsTrustIconsBadgesMutation {
   icon: String
   text: String
 }
 
-input HomePageContentSectionsGuaranteesMutation {
-  badges: [HomePageContentSectionsGuaranteesBadgesMutation]
+input HomePageContentSectionsTrustIconsMutation {
+  badges: [HomePageContentSectionsTrustIconsBadgesMutation]
 }
 
-input HomePageContentSectionsCollectionListMutation {
+input HomePageContentSectionsSingleCollectionPreviewMutation {
   collection: String
   numImages: Int
-  numColumns: Int
-  numRows: Int
 }
 
-input HomePageContentSectionsCollectionListDisplayMutation {
+input HomePageContentSectionsMultipleCollectionsPreviewMutation {
   titleText: String
   collections: [String]
 }
@@ -275,16 +295,38 @@ input HomePageContentSectionsCollectionListDisplayMutation {
 input HomePageContentSectionsSocialMediaIntegrationMutation {
   socialMedia: String
   numImages: Int
-  numColumns: Int
-  numRows: Int
+}
+
+input HomePageContentSectionsTestimonialsUserTestimonialsMutation {
+  quote: String
+  user: String
+  website: String
+  date: String
+}
+
+input HomePageContentSectionsTestimonialsMutation {
+  titleText: String
+  userTestimonials: [HomePageContentSectionsTestimonialsUserTestimonialsMutation]
+}
+
+input HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation {
+  image: String
+  titleText: String
+  paragraphs: [String]
+}
+
+input HomePageContentSectionsAlternatingImageBlocksMutation {
+  imageBlocks: [HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation]
 }
 
 input HomePageContentSectionsMutation {
   carousel: HomePageContentSectionsCarouselMutation
-  guarantees: HomePageContentSectionsGuaranteesMutation
-  collectionList: HomePageContentSectionsCollectionListMutation
-  collectionListDisplay: HomePageContentSectionsCollectionListDisplayMutation
+  trustIcons: HomePageContentSectionsTrustIconsMutation
+  singleCollectionPreview: HomePageContentSectionsSingleCollectionPreviewMutation
+  multipleCollectionsPreview: HomePageContentSectionsMultipleCollectionsPreviewMutation
   socialMediaIntegration: HomePageContentSectionsSocialMediaIntegrationMutation
+  testimonials: HomePageContentSectionsTestimonialsMutation
+  alternatingImageBlocks: HomePageContentSectionsAlternatingImageBlocksMutation
 }
 
 input HomePageContentMutation {

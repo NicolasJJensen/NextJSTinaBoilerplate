@@ -49,7 +49,7 @@
                 },
                 {
                   "label": "Y",
-                  "name": "x",
+                  "name": "y",
                   "type": "number"
                 },
                 {
@@ -93,8 +93,8 @@
               ]
             },
             {
-              "label": "Guarantees",
-              "name": "guarantees",
+              "label": "Trust Icons",
+              "name": "trustIcons",
               "fields": [
                 {
                   "label": "Badges",
@@ -117,8 +117,8 @@
               ]
             },
             {
-              "label": "Collection List",
-              "name": "collectionList",
+              "label": "Single Collection Preview",
+              "name": "singleCollectionPreview",
               "fields": [
                 {
                   "label": "Collection",
@@ -129,22 +129,12 @@
                   "label": "Nº Displayed Products",
                   "name": "numImages",
                   "type": "number"
-                },
-                {
-                  "label": "Nº Columns",
-                  "name": "numColumns",
-                  "type": "number"
-                },
-                {
-                  "label": "Nº Rows",
-                  "name": "numRows",
-                  "type": "number"
                 }
               ]
             },
             {
-              "label": "Collection List Display",
-              "name": "collectionListDisplay",
+              "label": "Multiple Collections Preview",
+              "name": "multipleCollectionsPreview",
               "fields": [
                 {
                   "label": "Title Text",
@@ -177,16 +167,75 @@
                   "label": "Nº Images To Display",
                   "name": "numImages",
                   "type": "number"
+                }
+              ]
+            },
+            {
+              "label": "Testimonials",
+              "name": "testimonials",
+              "fields": [
+                {
+                  "label": "Title Text",
+                  "name": "titleText",
+                  "type": "string"
                 },
                 {
-                  "label": "Nº Columns",
-                  "name": "numColumns",
-                  "type": "number"
-                },
+                  "label": "User Testimonials",
+                  "name": "userTestimonials",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Quote",
+                      "name": "quote",
+                      "type": "string"
+                    },
+                    {
+                      "label": "User",
+                      "name": "user",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Website",
+                      "name": "website",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Date",
+                      "name": "date",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Alternating Image Blocks",
+              "name": "alternatingImageBlocks",
+              "fields": [
                 {
-                  "label": "Nº Rows",
-                  "name": "numRows",
-                  "type": "number"
+                  "label": "Image Blocks",
+                  "name": "imageBlocks",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Title Text",
+                      "name": "titleText",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Paragraphs",
+                      "name": "paragraphs",
+                      "type": "string",
+                      "list": true
+                    }
+                  ]
                 }
               ]
             }

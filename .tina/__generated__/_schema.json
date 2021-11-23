@@ -72,13 +72,13 @@
                 },
                 {
                   "label": "Y",
-                  "name": "x",
+                  "name": "y",
                   "type": "number",
                   "namespace": [
                     "homePageContent",
                     "sections",
                     "carousel",
-                    "x"
+                    "y"
                   ]
                 },
                 {
@@ -171,8 +171,8 @@
               ]
             },
             {
-              "label": "Guarantees",
-              "name": "guarantees",
+              "label": "Trust Icons",
+              "name": "trustIcons",
               "fields": [
                 {
                   "label": "Badges",
@@ -187,7 +187,7 @@
                       "namespace": [
                         "homePageContent",
                         "sections",
-                        "guarantees",
+                        "trustIcons",
                         "badges",
                         "icon"
                       ]
@@ -199,7 +199,7 @@
                       "namespace": [
                         "homePageContent",
                         "sections",
-                        "guarantees",
+                        "trustIcons",
                         "badges",
                         "text"
                       ]
@@ -208,7 +208,7 @@
                   "namespace": [
                     "homePageContent",
                     "sections",
-                    "guarantees",
+                    "trustIcons",
                     "badges"
                   ]
                 }
@@ -216,12 +216,12 @@
               "namespace": [
                 "homePageContent",
                 "sections",
-                "guarantees"
+                "trustIcons"
               ]
             },
             {
-              "label": "Collection List",
-              "name": "collectionList",
+              "label": "Single Collection Preview",
+              "name": "singleCollectionPreview",
               "fields": [
                 {
                   "label": "Collection",
@@ -230,7 +230,7 @@
                   "namespace": [
                     "homePageContent",
                     "sections",
-                    "collectionList",
+                    "singleCollectionPreview",
                     "collection"
                   ]
                 },
@@ -241,42 +241,20 @@
                   "namespace": [
                     "homePageContent",
                     "sections",
-                    "collectionList",
+                    "singleCollectionPreview",
                     "numImages"
-                  ]
-                },
-                {
-                  "label": "Nº Columns",
-                  "name": "numColumns",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "collectionList",
-                    "numColumns"
-                  ]
-                },
-                {
-                  "label": "Nº Rows",
-                  "name": "numRows",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "collectionList",
-                    "numRows"
                   ]
                 }
               ],
               "namespace": [
                 "homePageContent",
                 "sections",
-                "collectionList"
+                "singleCollectionPreview"
               ]
             },
             {
-              "label": "Collection List Display",
-              "name": "collectionListDisplay",
+              "label": "Multiple Collections Preview",
+              "name": "multipleCollectionsPreview",
               "fields": [
                 {
                   "label": "Title Text",
@@ -285,7 +263,7 @@
                   "namespace": [
                     "homePageContent",
                     "sections",
-                    "collectionListDisplay",
+                    "multipleCollectionsPreview",
                     "titleText"
                   ]
                 },
@@ -297,7 +275,7 @@
                   "namespace": [
                     "homePageContent",
                     "sections",
-                    "collectionListDisplay",
+                    "multipleCollectionsPreview",
                     "collections"
                   ]
                 }
@@ -305,7 +283,7 @@
               "namespace": [
                 "homePageContent",
                 "sections",
-                "collectionListDisplay"
+                "multipleCollectionsPreview"
               ]
             },
             {
@@ -338,34 +316,158 @@
                     "socialMediaIntegration",
                     "numImages"
                   ]
-                },
-                {
-                  "label": "Nº Columns",
-                  "name": "numColumns",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "socialMediaIntegration",
-                    "numColumns"
-                  ]
-                },
-                {
-                  "label": "Nº Rows",
-                  "name": "numRows",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "socialMediaIntegration",
-                    "numRows"
-                  ]
                 }
               ],
               "namespace": [
                 "homePageContent",
                 "sections",
                 "socialMediaIntegration"
+              ]
+            },
+            {
+              "label": "Testimonials",
+              "name": "testimonials",
+              "fields": [
+                {
+                  "label": "Title Text",
+                  "name": "titleText",
+                  "type": "string",
+                  "namespace": [
+                    "homePageContent",
+                    "sections",
+                    "testimonials",
+                    "titleText"
+                  ]
+                },
+                {
+                  "label": "User Testimonials",
+                  "name": "userTestimonials",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Quote",
+                      "name": "quote",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "quote"
+                      ]
+                    },
+                    {
+                      "label": "User",
+                      "name": "user",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "user"
+                      ]
+                    },
+                    {
+                      "label": "Website",
+                      "name": "website",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "website"
+                      ]
+                    },
+                    {
+                      "label": "Date",
+                      "name": "date",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "date"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePageContent",
+                    "sections",
+                    "testimonials",
+                    "userTestimonials"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePageContent",
+                "sections",
+                "testimonials"
+              ]
+            },
+            {
+              "label": "Alternating Image Blocks",
+              "name": "alternatingImageBlocks",
+              "fields": [
+                {
+                  "label": "Image Blocks",
+                  "name": "imageBlocks",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Title Text",
+                      "name": "titleText",
+                      "type": "string",
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "titleText"
+                      ]
+                    },
+                    {
+                      "label": "Paragraphs",
+                      "name": "paragraphs",
+                      "type": "string",
+                      "list": true,
+                      "namespace": [
+                        "homePageContent",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "paragraphs"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePageContent",
+                    "sections",
+                    "alternatingImageBlocks",
+                    "imageBlocks"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePageContent",
+                "sections",
+                "alternatingImageBlocks"
               ]
             }
           ],

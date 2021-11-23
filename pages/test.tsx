@@ -4,7 +4,9 @@ import Head from 'next/head'
 import RatingStars from '@/components/RatingStars'
 import ProductCard from '@/components/ProductCard'
 import Image from '@/components/Image'
+
 import { staticRequest } from 'tinacms'
+import homePageQuery from '@/lib/gql/homePageQuery'
 
 const Test: NextPage = (props: any) => {
 
@@ -34,41 +36,11 @@ const Test: NextPage = (props: any) => {
 export default Test
 
 export async function getStaticProps() {
-  const query = `#graphql
-    query PageQuery($relativePath: String!) {
-      getNavbarDocument(relativePath: "navbar.json") {
-        data {
-          navbarLinks {
-            label
-            url
-          }
-        }
-      }
-      getFooterDocument(relativePath: "footer.json") {
-        data {
-          navSections {
-            title
-            links {
-              label
-              url
-            }
-          }
-        }
-      }
-    }
-  `
-
-  const variables = { relativePath: 'test.json' }
-
-  const data: any = await staticRequest({
-    query: query,
-    variables: variables
-  })
+  const data: any = await staticRequest({ query: homePageQuery })
 
   return {
     props: {
-      query,
-      variables,
+      query: homePageQuery,
       data,
     }
   }

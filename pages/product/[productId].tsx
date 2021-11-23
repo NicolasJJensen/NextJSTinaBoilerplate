@@ -10,8 +10,6 @@ const ProductPage: NextPage = (props: any) => {
   const router = useRouter()
   const { productId } = router.query
 
-  console.log(props)
-
   return (
     <>
       <Head>

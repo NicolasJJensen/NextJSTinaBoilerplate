@@ -216,6 +216,8 @@ export type HomePageContentSectionsCarouselButton = {
 
 export type HomePageContentSectionsCarousel = {
   __typename?: 'HomePageContentSectionsCarousel';
+  x?: Maybe<Scalars['Int']>;
+  y?: Maybe<Scalars['Int']>;
   images?: Maybe<Array<Maybe<Scalars['String']>>>;
   mainText?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -223,27 +225,25 @@ export type HomePageContentSectionsCarousel = {
   delay?: Maybe<Scalars['Int']>;
 };
 
-export type HomePageContentSectionsGuaranteesBadges = {
-  __typename?: 'HomePageContentSectionsGuaranteesBadges';
+export type HomePageContentSectionsTrustIconsBadges = {
+  __typename?: 'HomePageContentSectionsTrustIconsBadges';
   icon?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
 };
 
-export type HomePageContentSectionsGuarantees = {
-  __typename?: 'HomePageContentSectionsGuarantees';
-  badges?: Maybe<Array<Maybe<HomePageContentSectionsGuaranteesBadges>>>;
+export type HomePageContentSectionsTrustIcons = {
+  __typename?: 'HomePageContentSectionsTrustIcons';
+  badges?: Maybe<Array<Maybe<HomePageContentSectionsTrustIconsBadges>>>;
 };
 
-export type HomePageContentSectionsCollectionList = {
-  __typename?: 'HomePageContentSectionsCollectionList';
+export type HomePageContentSectionsSingleCollectionPreview = {
+  __typename?: 'HomePageContentSectionsSingleCollectionPreview';
   collection?: Maybe<Scalars['String']>;
   numImages?: Maybe<Scalars['Int']>;
-  numColumns?: Maybe<Scalars['Int']>;
-  numRows?: Maybe<Scalars['Int']>;
 };
 
-export type HomePageContentSectionsCollectionListDisplay = {
-  __typename?: 'HomePageContentSectionsCollectionListDisplay';
+export type HomePageContentSectionsMultipleCollectionsPreview = {
+  __typename?: 'HomePageContentSectionsMultipleCollectionsPreview';
   titleText?: Maybe<Scalars['String']>;
   collections?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
@@ -252,11 +252,35 @@ export type HomePageContentSectionsSocialMediaIntegration = {
   __typename?: 'HomePageContentSectionsSocialMediaIntegration';
   socialMedia?: Maybe<Scalars['String']>;
   numImages?: Maybe<Scalars['Int']>;
-  numColumns?: Maybe<Scalars['Int']>;
-  numRows?: Maybe<Scalars['Int']>;
 };
 
-export type HomePageContentSections = HomePageContentSectionsCarousel | HomePageContentSectionsGuarantees | HomePageContentSectionsCollectionList | HomePageContentSectionsCollectionListDisplay | HomePageContentSectionsSocialMediaIntegration;
+export type HomePageContentSectionsTestimonialsUserTestimonials = {
+  __typename?: 'HomePageContentSectionsTestimonialsUserTestimonials';
+  quote?: Maybe<Scalars['String']>;
+  user?: Maybe<Scalars['String']>;
+  website?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+};
+
+export type HomePageContentSectionsTestimonials = {
+  __typename?: 'HomePageContentSectionsTestimonials';
+  titleText?: Maybe<Scalars['String']>;
+  userTestimonials?: Maybe<Array<Maybe<HomePageContentSectionsTestimonialsUserTestimonials>>>;
+};
+
+export type HomePageContentSectionsAlternatingImageBlocksImageBlocks = {
+  __typename?: 'HomePageContentSectionsAlternatingImageBlocksImageBlocks';
+  image?: Maybe<Scalars['String']>;
+  titleText?: Maybe<Scalars['String']>;
+  paragraphs?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type HomePageContentSectionsAlternatingImageBlocks = {
+  __typename?: 'HomePageContentSectionsAlternatingImageBlocks';
+  imageBlocks?: Maybe<Array<Maybe<HomePageContentSectionsAlternatingImageBlocksImageBlocks>>>;
+};
+
+export type HomePageContentSections = HomePageContentSectionsCarousel | HomePageContentSectionsTrustIcons | HomePageContentSectionsSingleCollectionPreview | HomePageContentSectionsMultipleCollectionsPreview | HomePageContentSectionsSocialMediaIntegration | HomePageContentSectionsTestimonials | HomePageContentSectionsAlternatingImageBlocks;
 
 export type HomePageContent = {
   __typename?: 'HomePageContent';
@@ -417,6 +441,8 @@ export type HomePageContentSectionsCarouselButtonMutation = {
 };
 
 export type HomePageContentSectionsCarouselMutation = {
+  x?: InputMaybe<Scalars['Int']>;
+  y?: InputMaybe<Scalars['Int']>;
   images?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   mainText?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
@@ -424,23 +450,21 @@ export type HomePageContentSectionsCarouselMutation = {
   delay?: InputMaybe<Scalars['Int']>;
 };
 
-export type HomePageContentSectionsGuaranteesBadgesMutation = {
+export type HomePageContentSectionsTrustIconsBadgesMutation = {
   icon?: InputMaybe<Scalars['String']>;
   text?: InputMaybe<Scalars['String']>;
 };
 
-export type HomePageContentSectionsGuaranteesMutation = {
-  badges?: InputMaybe<Array<InputMaybe<HomePageContentSectionsGuaranteesBadgesMutation>>>;
+export type HomePageContentSectionsTrustIconsMutation = {
+  badges?: InputMaybe<Array<InputMaybe<HomePageContentSectionsTrustIconsBadgesMutation>>>;
 };
 
-export type HomePageContentSectionsCollectionListMutation = {
+export type HomePageContentSectionsSingleCollectionPreviewMutation = {
   collection?: InputMaybe<Scalars['String']>;
   numImages?: InputMaybe<Scalars['Int']>;
-  numColumns?: InputMaybe<Scalars['Int']>;
-  numRows?: InputMaybe<Scalars['Int']>;
 };
 
-export type HomePageContentSectionsCollectionListDisplayMutation = {
+export type HomePageContentSectionsMultipleCollectionsPreviewMutation = {
   titleText?: InputMaybe<Scalars['String']>;
   collections?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -448,16 +472,38 @@ export type HomePageContentSectionsCollectionListDisplayMutation = {
 export type HomePageContentSectionsSocialMediaIntegrationMutation = {
   socialMedia?: InputMaybe<Scalars['String']>;
   numImages?: InputMaybe<Scalars['Int']>;
-  numColumns?: InputMaybe<Scalars['Int']>;
-  numRows?: InputMaybe<Scalars['Int']>;
+};
+
+export type HomePageContentSectionsTestimonialsUserTestimonialsMutation = {
+  quote?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<Scalars['String']>;
+  website?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
+};
+
+export type HomePageContentSectionsTestimonialsMutation = {
+  titleText?: InputMaybe<Scalars['String']>;
+  userTestimonials?: InputMaybe<Array<InputMaybe<HomePageContentSectionsTestimonialsUserTestimonialsMutation>>>;
+};
+
+export type HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  titleText?: InputMaybe<Scalars['String']>;
+  paragraphs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type HomePageContentSectionsAlternatingImageBlocksMutation = {
+  imageBlocks?: InputMaybe<Array<InputMaybe<HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation>>>;
 };
 
 export type HomePageContentSectionsMutation = {
   carousel?: InputMaybe<HomePageContentSectionsCarouselMutation>;
-  guarantees?: InputMaybe<HomePageContentSectionsGuaranteesMutation>;
-  collectionList?: InputMaybe<HomePageContentSectionsCollectionListMutation>;
-  collectionListDisplay?: InputMaybe<HomePageContentSectionsCollectionListDisplayMutation>;
+  trustIcons?: InputMaybe<HomePageContentSectionsTrustIconsMutation>;
+  singleCollectionPreview?: InputMaybe<HomePageContentSectionsSingleCollectionPreviewMutation>;
+  multipleCollectionsPreview?: InputMaybe<HomePageContentSectionsMultipleCollectionsPreviewMutation>;
   socialMediaIntegration?: InputMaybe<HomePageContentSectionsSocialMediaIntegrationMutation>;
+  testimonials?: InputMaybe<HomePageContentSectionsTestimonialsMutation>;
+  alternatingImageBlocks?: InputMaybe<HomePageContentSectionsAlternatingImageBlocksMutation>;
 };
 
 export type HomePageContentMutation = {
@@ -480,7 +526,7 @@ export type FooterMutation = {
 
 export type NavbarPartsFragment = { __typename?: 'Navbar', navbarLinks?: Array<{ __typename: 'NavbarNavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type HomePageContentPartsFragment = { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsGuarantees', badges?: Array<{ __typename: 'HomePageContentSectionsGuaranteesBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsCollectionList', collection?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | { __typename: 'HomePageContentSectionsCollectionListDisplay', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | null | undefined> | null | undefined };
+export type HomePageContentPartsFragment = { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', x?: number | null | undefined, y?: number | null | undefined, images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsTrustIcons', badges?: Array<{ __typename: 'HomePageContentSectionsTrustIconsBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSingleCollectionPreview', collection?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsMultipleCollectionsPreview', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsTestimonials', titleText?: string | null | undefined, userTestimonials?: Array<{ __typename: 'HomePageContentSectionsTestimonialsUserTestimonials', quote?: string | null | undefined, user?: string | null | undefined, website?: string | null | undefined, date?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsAlternatingImageBlocks', imageBlocks?: Array<{ __typename: 'HomePageContentSectionsAlternatingImageBlocksImageBlocks', image?: string | null | undefined, titleText?: string | null | undefined, paragraphs?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
 export type FooterPartsFragment = { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
@@ -501,12 +547,12 @@ export type GetHomePageContentDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetHomePageContentDocumentQuery = { __typename?: 'Query', getHomePageContentDocument: { __typename?: 'HomePageContentDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsGuarantees', badges?: Array<{ __typename: 'HomePageContentSectionsGuaranteesBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsCollectionList', collection?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | { __typename: 'HomePageContentSectionsCollectionListDisplay', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | null | undefined> | null | undefined } } };
+export type GetHomePageContentDocumentQuery = { __typename?: 'Query', getHomePageContentDocument: { __typename?: 'HomePageContentDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', x?: number | null | undefined, y?: number | null | undefined, images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsTrustIcons', badges?: Array<{ __typename: 'HomePageContentSectionsTrustIconsBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSingleCollectionPreview', collection?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsMultipleCollectionsPreview', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsTestimonials', titleText?: string | null | undefined, userTestimonials?: Array<{ __typename: 'HomePageContentSectionsTestimonialsUserTestimonials', quote?: string | null | undefined, user?: string | null | undefined, website?: string | null | undefined, date?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsAlternatingImageBlocks', imageBlocks?: Array<{ __typename: 'HomePageContentSectionsAlternatingImageBlocksImageBlocks', image?: string | null | undefined, titleText?: string | null | undefined, paragraphs?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } };
 
 export type GetHomePageContentListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomePageContentListQuery = { __typename?: 'Query', getHomePageContentList: { __typename?: 'HomePageContentConnection', totalCount: number, edges?: Array<{ __typename?: 'HomePageContentConnectionEdges', node?: { __typename?: 'HomePageContentDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsGuarantees', badges?: Array<{ __typename: 'HomePageContentSectionsGuaranteesBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsCollectionList', collection?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | { __typename: 'HomePageContentSectionsCollectionListDisplay', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined, numColumns?: number | null | undefined, numRows?: number | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetHomePageContentListQuery = { __typename?: 'Query', getHomePageContentList: { __typename?: 'HomePageContentConnection', totalCount: number, edges?: Array<{ __typename?: 'HomePageContentConnectionEdges', node?: { __typename?: 'HomePageContentDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', x?: number | null | undefined, y?: number | null | undefined, images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsTrustIcons', badges?: Array<{ __typename: 'HomePageContentSectionsTrustIconsBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSingleCollectionPreview', collection?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsMultipleCollectionsPreview', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsTestimonials', titleText?: string | null | undefined, userTestimonials?: Array<{ __typename: 'HomePageContentSectionsTestimonialsUserTestimonials', quote?: string | null | undefined, user?: string | null | undefined, website?: string | null | undefined, date?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsAlternatingImageBlocks', imageBlocks?: Array<{ __typename: 'HomePageContentSectionsAlternatingImageBlocksImageBlocks', image?: string | null | undefined, titleText?: string | null | undefined, paragraphs?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
 export type GetFooterDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -534,6 +580,8 @@ export const HomePageContentPartsFragmentDoc = gql`
   sections {
     __typename
     ... on HomePageContentSectionsCarousel {
+      x
+      y
       images
       mainText
       description
@@ -544,28 +592,42 @@ export const HomePageContentPartsFragmentDoc = gql`
       }
       delay
     }
-    ... on HomePageContentSectionsGuarantees {
+    ... on HomePageContentSectionsTrustIcons {
       badges {
         __typename
         icon
         text
       }
     }
-    ... on HomePageContentSectionsCollectionList {
+    ... on HomePageContentSectionsSingleCollectionPreview {
       collection
       numImages
-      numColumns
-      numRows
     }
-    ... on HomePageContentSectionsCollectionListDisplay {
+    ... on HomePageContentSectionsMultipleCollectionsPreview {
       titleText
       collections
     }
     ... on HomePageContentSectionsSocialMediaIntegration {
       socialMedia
       numImages
-      numColumns
-      numRows
+    }
+    ... on HomePageContentSectionsTestimonials {
+      titleText
+      userTestimonials {
+        __typename
+        quote
+        user
+        website
+        date
+      }
+    }
+    ... on HomePageContentSectionsAlternatingImageBlocks {
+      imageBlocks {
+        __typename
+        image
+        titleText
+        paragraphs
+      }
     }
   }
 }

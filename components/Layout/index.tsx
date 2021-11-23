@@ -5,9 +5,6 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 function Layout({ data, children }: { data?: any, children: React.ReactNode }) {
-
-  console.log(data)
-
   return (
     <AnimateSharedLayout>
       <Head>

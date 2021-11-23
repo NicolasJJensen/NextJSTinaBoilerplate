@@ -35,10 +35,12 @@
     "resolveType": "unionData",
     "typeMap": {
       "carousel": "HomePageContentSectionsCarousel",
-      "guarantees": "HomePageContentSectionsGuarantees",
-      "collectionList": "HomePageContentSectionsCollectionList",
-      "collectionListDisplay": "HomePageContentSectionsCollectionListDisplay",
-      "socialMediaIntegration": "HomePageContentSectionsSocialMediaIntegration"
+      "trustIcons": "HomePageContentSectionsTrustIcons",
+      "singleCollectionPreview": "HomePageContentSectionsSingleCollectionPreview",
+      "multipleCollectionsPreview": "HomePageContentSectionsMultipleCollectionsPreview",
+      "socialMediaIntegration": "HomePageContentSectionsSocialMediaIntegration",
+      "testimonials": "HomePageContentSectionsTestimonials",
+      "alternatingImageBlocks": "HomePageContentSectionsAlternatingImageBlocks"
     }
   },
   "HomePageContentDocument": {
