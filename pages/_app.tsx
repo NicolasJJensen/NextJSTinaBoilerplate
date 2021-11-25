@@ -11,7 +11,7 @@ import '@/styles/globalStyles.scss'
 
 import Layout from '@/components/Layout'
 
-const MyApp = ({ Component, pageProps }: AppProps & { global: any }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <TinaEditProvider
@@ -36,14 +36,14 @@ const MyApp = ({ Component, pageProps }: AppProps & { global: any }) => {
             {...pageProps}
           >
               {(livePageProps: any) => (
-                <Layout data={global}>
+                <Layout navbarData={pageProps.navbar} footerData={pageProps.footer}>
                     <Component {...livePageProps} />
                 </Layout>
               )}
           </TinaCMS>
         }
       >
-        <Layout data={global} >
+        <Layout navbarData={pageProps.navbar} footerData={pageProps.footer} >
           <Component {...pageProps} />
         </Layout>
       </TinaEditProvider>
@@ -52,42 +52,3 @@ const MyApp = ({ Component, pageProps }: AppProps & { global: any }) => {
 }
 
 export default MyApp
-
-//! THIS IS BAD, SHOULD NOT BE USING getInitialProps
-// MyApp.getInitialProps = async (ctx: any) => {
-//   const pageProps = await App.getInitialProps(ctx) // Retrieves page's `getInitialProps`
-
-//   const query = `query getGlobalData {
-//     getNavbarDocument(relativePath: "navbar.json") {
-//       data {
-//         navbarLinks {
-//           label
-//           url
-//         }
-//       }
-//     }
-//     getFooterDocument(relativePath: "footer.json") {
-//       data {
-//         navSections {
-//           title
-//           links {
-//             label
-//             url
-//           }
-//         }
-//       }
-//     }
-//   }`
-
-//   const data: any = await staticRequest({
-//     query: query,
-//   })
-
-//   return {
-//     ...pageProps,
-//     global: {
-//       footer: data.getFooterDocument.data,
-//       navbar: data.getNavbarDocument.data
-//     }
-//   }
-// }

@@ -6,9 +6,9 @@ import ProductCard from '@/components/ProductCard'
 import Image from '@/components/Image'
 
 import { staticRequest } from 'tinacms'
-import homePageQuery from '@/lib/gql/homePageQuery'
+import TinaGQLQuery, { PropsType, ReturnedGQLDataType, mapDataForProps } from '@/lib/gql/homePageQuery'
 
-const Test: NextPage = (props: any) => {
+const Test: NextPage<PropsType> = (props) => {
 
   return (
     <>
@@ -36,12 +36,12 @@ const Test: NextPage = (props: any) => {
 export default Test
 
 export async function getStaticProps() {
-  const data: any = await staticRequest({ query: homePageQuery })
+  const data: ReturnedGQLDataType = (await staticRequest({ query: TinaGQLQuery })) as ReturnedGQLDataType
 
   return {
     props: {
-      query: homePageQuery,
-      data,
+      query: TinaGQLQuery,
+      ...mapDataForProps(data)
     }
   }
 }
