@@ -1,34 +1,37 @@
-import './navbar.module.scss'
 import { Navbar as PropsType } from '@/tina/__generated__/types'
 import Link from 'next/link'
-import { Fragment } from 'react'
+import Image from 'next/image'
+
+import { cn } from '@/helpers/classNames'
+import styles from './navbar.module.scss'
 
 export default function Navbar(props: PropsType) {
 
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <a className="navbar-brand" href="#">Navbar</a>
+  const layoutClass = {
+    'Left Aligned Links': styles.leftLinks,
+    'Right Aligned Links': styles.rightLinks,
+  }[props.layout || 'Left Aligned Links'] as string
+  
+  const navClasses = [
+    styles.navbar,
+    props.fixed ? styles.fixed: '',
+    layoutClass,
+  ]
 
-      <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          {props.navbarLinks?.map(navbarLink => (
-            <Fragment key={navbarLink?.label}>
-              {navbarLink?.url && navbarLink?.label && (
-                <li key={navbarLink.label} className="nav-item">
-                  <Link href={navbarLink.url}>{navbarLink.label}</Link>
-                </li>
-              )}
-            </Fragment>
+  return (
+    <nav className={cn(navClasses)}>
+      <Link passHref href='/'>
+        <a>
+          <Image width={80} height={40} src={props?.logo || 'https://source.unsplash.com/600x300/?logo'} alt='logo' />
+        </a>
+      </Link>
+      <ul>
+        {props.navbarLinks?.map((navbarLink, i) => (
+            <li key={i}>
+              <Link href={navbarLink?.url || '#'}>{navbarLink?.label || ''}</Link>
+            </li>
           ))}
-        </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
+      </ul>
     </nav>
   )
 }

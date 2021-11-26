@@ -5,16 +5,6 @@ const carouselTemplate: TinaTemplate = {
   name: 'carousel',
   fields: [
     {
-      label: 'X',
-      name: 'x',
-      type: 'number'
-    },
-    {
-      label: 'Y',
-      name: 'y',
-      type: 'number'
-    },
-    {
       label: 'Images',
       name: 'images',
       type: 'string',
@@ -205,7 +195,7 @@ const alternatingImageBlocksTemplate: TinaTemplate = {
 }
 
 const homePageCollection: TinaCollection = {
-  path: 'content/pages',
+  path: 'content/pages/home',
   label: 'Home Page',
   name: 'homePage',
   format: 'json',

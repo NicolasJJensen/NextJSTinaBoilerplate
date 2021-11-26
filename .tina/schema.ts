@@ -3,6 +3,7 @@ import seoCollection from "./collections/seo"
 import footerCollection from './collections/footer'
 import navbarCollection from './collections/navbar'
 import homePageCollection from './collections/homePage'
+import testPageCollection from './collections/testPage'
 
 export default defineSchema({
   collections: [
@@ -10,5 +11,6 @@ export default defineSchema({
     navbarCollection,
     footerCollection,
     homePageCollection,
+    testPageCollection,
   ],
 })

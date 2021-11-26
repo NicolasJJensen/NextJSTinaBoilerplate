@@ -56,6 +56,8 @@ type Query {
   getFooterList(before: String, after: String, first: Int, last: Int): FooterConnection!
   getHomePageDocument(relativePath: String): HomePageDocument!
   getHomePageList(before: String, after: String, first: Int, last: Int): HomePageConnection!
+  getTestPageDocument(relativePath: String): TestPageDocument!
+  getTestPageList(before: String, after: String, first: Int, last: Int): TestPageConnection!
 }
 
 type DocumentConnectionEdges {
@@ -81,7 +83,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = SeoDocument | NavbarDocument | FooterDocument | HomePageDocument
+union DocumentNode = SeoDocument | NavbarDocument | FooterDocument | HomePageDocument | TestPageDocument
 
 type Seo {
   title: String
@@ -114,7 +116,10 @@ type NavbarNavbarLinks {
 }
 
 type Navbar {
+  logo: String
   navbarLinks: [NavbarNavbarLinks]
+  fixed: Boolean
+  layout: String
 }
 
 type NavbarDocument implements Node & Document {
@@ -177,8 +182,6 @@ type HomePageSectionsCarouselButton {
 }
 
 type HomePageSectionsCarousel {
-  x: Int
-  y: Int
   images: [String]
   mainText: String
   description: String
@@ -258,6 +261,36 @@ type HomePageConnection implements Connection {
   edges: [HomePageConnectionEdges]
 }
 
+type TestPageSections {
+  title: String
+  author: String
+  body: String
+}
+
+type TestPage {
+  sections: [TestPageSections]
+}
+
+type TestPageDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: TestPage!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type TestPageConnectionEdges {
+  cursor: String
+  node: TestPageDocument
+}
+
+type TestPageConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [TestPageConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -270,6 +303,8 @@ type Mutation {
   createFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
   updateHomePageDocument(relativePath: String!, params: HomePageMutation!): HomePageDocument!
   createHomePageDocument(relativePath: String!, params: HomePageMutation!): HomePageDocument!
+  updateTestPageDocument(relativePath: String!, params: TestPageMutation!): TestPageDocument!
+  createTestPageDocument(relativePath: String!, params: TestPageMutation!): TestPageDocument!
 }
 
 input DocumentMutation {
@@ -277,6 +312,7 @@ input DocumentMutation {
   navbar: NavbarMutation
   footer: FooterMutation
   homePage: HomePageMutation
+  testPage: TestPageMutation
 }
 
 input SeoMutation {
@@ -290,7 +326,10 @@ input NavbarNavbarLinksMutation {
 }
 
 input NavbarMutation {
+  logo: String
   navbarLinks: [NavbarNavbarLinksMutation]
+  fixed: Boolean
+  layout: String
 }
 
 input FooterNavigationRowLinksMutation {
@@ -313,8 +352,6 @@ input HomePageSectionsCarouselButtonMutation {
 }
 
 input HomePageSectionsCarouselMutation {
-  x: Int
-  y: Int
   images: [String]
   mainText: String
   description: String
@@ -380,6 +417,16 @@ input HomePageSectionsMutation {
 
 input HomePageMutation {
   sections: [HomePageSectionsMutation]
+}
+
+input TestPageSectionsMutation {
+  title: String
+  author: String
+  body: String
+}
+
+input TestPageMutation {
+  sections: [TestPageSectionsMutation]
 }
 
 schema {

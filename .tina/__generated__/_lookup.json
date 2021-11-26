@@ -6,7 +6,8 @@
       "seo",
       "navbar",
       "footer",
-      "homePage"
+      "homePage",
+      "testPage"
     ]
   },
   "Node": {
@@ -104,5 +105,17 @@
     "type": "HomePageConnection",
     "resolveType": "collectionDocumentList",
     "collection": "homePage"
+  },
+  "TestPageDocument": {
+    "type": "TestPageDocument",
+    "resolveType": "collectionDocument",
+    "collection": "testPage",
+    "createTestPageDocument": "create",
+    "updateTestPageDocument": "update"
+  },
+  "TestPageConnection": {
+    "type": "TestPageConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "testPage"
   }
 }

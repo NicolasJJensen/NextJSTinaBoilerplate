@@ -153,3 +153,42 @@ query getHomePageList {
     }
   }
 }
+
+query getTestPageDocument($relativePath: String!) {
+  getTestPageDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...TestPageParts
+    }
+  }
+}
+
+query getTestPageList {
+  getTestPageList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...TestPageParts
+        }
+      }
+    }
+  }
+}

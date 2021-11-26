@@ -25,21 +25,40 @@
       "format": "json",
       "fields": [
         {
-          "type": "object",
+          "label": "Logo",
+          "name": "logo",
+          "type": "string"
+        },
+        {
           "list": true,
           "label": "Navbar Links",
           "name": "navbarLinks",
+          "type": "object",
           "fields": [
             {
-              "type": "string",
               "label": "Label",
-              "name": "label"
+              "name": "label",
+              "type": "string"
             },
             {
-              "type": "string",
               "label": "URL",
-              "name": "url"
+              "name": "url",
+              "type": "string"
             }
+          ]
+        },
+        {
+          "label": "Fix Navbar to Top",
+          "name": "fixed",
+          "type": "boolean"
+        },
+        {
+          "label": "Layout",
+          "name": "layout",
+          "type": "string",
+          "options": [
+            "Right Aligned Links",
+            "Left Aligned Links"
           ]
         }
       ]
@@ -84,7 +103,7 @@
       ]
     },
     {
-      "path": "content/pages",
+      "path": "content/pages/home",
       "label": "Home Page",
       "name": "homePage",
       "format": "json",
@@ -99,16 +118,6 @@
               "label": "Carousel",
               "name": "carousel",
               "fields": [
-                {
-                  "label": "X",
-                  "name": "x",
-                  "type": "number"
-                },
-                {
-                  "label": "Y",
-                  "name": "y",
-                  "type": "number"
-                },
                 {
                   "label": "Images",
                   "name": "images",
@@ -295,6 +304,38 @@
                   ]
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/pages/test",
+      "label": "Test Page",
+      "name": "testPage",
+      "format": "json",
+      "fields": [
+        {
+          "name": "sections",
+          "label": "Sections",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "label": "Author",
+              "name": "author",
+              "type": "string"
+            },
+            {
+              "label": "Body",
+              "name": "body",
+              "type": "string",
+              "isBody": true
             }
           ]
         }

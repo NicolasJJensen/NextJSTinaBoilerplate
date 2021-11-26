@@ -4,11 +4,14 @@ fragment SeoParts on Seo {
 }
 
 fragment NavbarParts on Navbar {
+  logo
   navbarLinks {
     __typename
     label
     url
   }
+  fixed
+  layout
 }
 
 fragment FooterParts on Footer {
@@ -27,8 +30,6 @@ fragment HomePageParts on HomePage {
   sections {
     __typename
     ... on HomePageSectionsCarousel {
-      x
-      y
       images
       mainText
       description
@@ -76,5 +77,14 @@ fragment HomePageParts on HomePage {
         paragraphs
       }
     }
+  }
+}
+
+fragment TestPageParts on TestPage {
+  sections {
+    __typename
+    title
+    author
+    body
   }
 }

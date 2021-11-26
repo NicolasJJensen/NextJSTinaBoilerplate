@@ -36,15 +36,24 @@
       "format": "json",
       "fields": [
         {
-          "type": "object",
+          "label": "Logo",
+          "name": "logo",
+          "type": "string",
+          "namespace": [
+            "navbar",
+            "logo"
+          ]
+        },
+        {
           "list": true,
           "label": "Navbar Links",
           "name": "navbarLinks",
+          "type": "object",
           "fields": [
             {
-              "type": "string",
               "label": "Label",
               "name": "label",
+              "type": "string",
               "namespace": [
                 "navbar",
                 "navbarLinks",
@@ -52,9 +61,9 @@
               ]
             },
             {
-              "type": "string",
               "label": "URL",
               "name": "url",
+              "type": "string",
               "namespace": [
                 "navbar",
                 "navbarLinks",
@@ -65,6 +74,28 @@
           "namespace": [
             "navbar",
             "navbarLinks"
+          ]
+        },
+        {
+          "label": "Fix Navbar to Top",
+          "name": "fixed",
+          "type": "boolean",
+          "namespace": [
+            "navbar",
+            "fixed"
+          ]
+        },
+        {
+          "label": "Layout",
+          "name": "layout",
+          "type": "string",
+          "options": [
+            "Right Aligned Links",
+            "Left Aligned Links"
+          ],
+          "namespace": [
+            "navbar",
+            "layout"
           ]
         }
       ],
@@ -141,7 +172,7 @@
       ]
     },
     {
-      "path": "content/pages",
+      "path": "content/pages/home",
       "label": "Home Page",
       "name": "homePage",
       "format": "json",
@@ -156,28 +187,6 @@
               "label": "Carousel",
               "name": "carousel",
               "fields": [
-                {
-                  "label": "X",
-                  "name": "x",
-                  "type": "number",
-                  "namespace": [
-                    "homePage",
-                    "sections",
-                    "carousel",
-                    "x"
-                  ]
-                },
-                {
-                  "label": "Y",
-                  "name": "y",
-                  "type": "number",
-                  "namespace": [
-                    "homePage",
-                    "sections",
-                    "carousel",
-                    "y"
-                  ]
-                },
                 {
                   "label": "Images",
                   "name": "images",
@@ -576,6 +585,60 @@
       ],
       "namespace": [
         "homePage"
+      ]
+    },
+    {
+      "path": "content/pages/test",
+      "label": "Test Page",
+      "name": "testPage",
+      "format": "json",
+      "fields": [
+        {
+          "name": "sections",
+          "label": "Sections",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "type": "string",
+              "namespace": [
+                "testPage",
+                "sections",
+                "title"
+              ]
+            },
+            {
+              "label": "Author",
+              "name": "author",
+              "type": "string",
+              "namespace": [
+                "testPage",
+                "sections",
+                "author"
+              ]
+            },
+            {
+              "label": "Body",
+              "name": "body",
+              "type": "string",
+              "isBody": true,
+              "namespace": [
+                "testPage",
+                "sections",
+                "body"
+              ]
+            }
+          ],
+          "namespace": [
+            "testPage",
+            "sections"
+          ]
+        }
+      ],
+      "namespace": [
+        "testPage"
       ]
     }
   ],

@@ -1,0 +1,33 @@
+.leftLinks {
+  flex-direction: row-reverse;
+}
+
+.rightLinks {
+  flex-direction: row;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 0rem 1rem;
+  background-color: #dddddd;
+
+  a {
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 0rem 1rem;
+    }
+  }
+}

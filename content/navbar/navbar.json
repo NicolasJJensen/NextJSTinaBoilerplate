@@ -1,8 +1,23 @@
 {
+  "logo": "https://source.unsplash.com/1400x700/?logo",
   "navbarLinks": [
     {
-      "label": "TestLink1",
+      "label": "Test Link 1",
+      "url": "/test"
+    },
+    {
+      "label": "Test Link 2",
+      "url": "#"
+    },
+    {
+      "label": "Test Link 3",
+      "url": "#"
+    },
+    {
+      "label": "Test Link 4",
       "url": "#"
     }
-  ]
+  ],
+  "fixed": true,
+  "layout": "Right Aligned Links"
 }
