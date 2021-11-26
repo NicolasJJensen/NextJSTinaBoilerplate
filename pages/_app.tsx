@@ -21,12 +21,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         showEditButton={true}
         editMode={
           <TinaCMS
-            // Required: The query used in the pages' `getStaticProps` request
-            // query={query}
-            // Required: The variables used in the pages' `getStaticProps` request
-            // variables={variables}
-            // Required: The data used in the pages' `getStaticProps` request
-            // data={data}
             // True because we are currently developing the website locally
             // TODO: Change to use ENV variable that checks environment (won't be true in production)
             isLocalClient={true}
