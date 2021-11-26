@@ -22,13 +22,13 @@ export default function createFullQuery(query: string) {
 
 // This function takes a string with the name of a collection
 // Then it maps the data (from the structure of the above query) so the data is ready for page props
-function mapData<T>(data: BaseGQLType & any, otherDataName: string): {navbar: Navbar, footer: Footer } & T {
-  return {
-    navbar: data.getNavbarDocument.data,
-    footer: data.getFooterDocument.data,
-    seo: data.getSeoDocument.data,
-    ...data[`get${otherDataName}Document`].data,
-  }
+function mapDataForProps(data: BaseGQLType & any) {
+  return Object.keys(data).reduce((acc, key) => {
+    const name = Array.from(key.matchAll(/get(.*)Document/g))[0][1]
+    const newName = `${name[0].toLowerCase()}${name.slice(1)}Data`
+    acc[newName] = data[key].data
+    return acc
+  }, {} as any)
 }
 
 type BaseGQLType = {
@@ -37,5 +37,5 @@ type BaseGQLType = {
   getSeoDocument: { data: Seo },
 }
 
-export { mapData }
+export { mapDataForProps }
 export type { BaseGQLType }

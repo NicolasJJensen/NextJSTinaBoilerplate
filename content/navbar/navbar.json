@@ -1,8 +1,8 @@
 {
   "navbarLinks": [
     {
-      "label": "Test",
-      "url": "testURL"
+      "label": "TestLink1",
+      "url": "#"
     }
   ]
 }

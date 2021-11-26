@@ -1,21 +1,2 @@
 {
-  "navSections": [
-    {
-      "title": "TestSection",
-      "links": [
-        {
-          "label": "facebook",
-          "url": "http://www.facebook.com"
-        },
-        {
-          "label": "twitter",
-          "url": "http://www.twitter.com"
-        },
-        {
-          "label": "instagram",
-          "url": "http://www.instagram.com"
-        }
-      ]
-    }
-  ]
 }
