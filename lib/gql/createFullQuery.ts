@@ -23,6 +23,7 @@ export default function createFullQuery(query: string) {
 // This function takes a string with the name of a collection
 // Then it maps the data (from the structure of the above query) so the data is ready for page props
 function mapDataForProps(data: BaseGQLType & any) {
+  if(!data) return {}
   return Object.keys(data).reduce((acc, key) => {
     const name = Array.from(key.matchAll(/get(.*)Document/g))[0][1]
     const newName = `${name[0].toLowerCase()}${name.slice(1)}Data`

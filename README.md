@@ -1,3 +1,8 @@
+# Note About Errors in Console
+
+* Styled components issue is due to tina, tina requires styled components to be manually added to package.json and this causes issues with styled components
+* The "Warning: Did not expect server HTML to contain a \<div> in \<div>" error is because of the way Tina renders the edit component this warning should be ignored.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
