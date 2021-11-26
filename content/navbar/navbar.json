@@ -1,6 +1,6 @@
 {
   "logo": "https://source.unsplash.com/1400x700/?logo",
-  "navbarLinks": [
+  "links": [
     {
       "label": "Test Link 1",
       "url": "/test"

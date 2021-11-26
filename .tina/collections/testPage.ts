@@ -25,17 +25,9 @@ const testPageCollection: TinaCollection = {
   name: 'testPage',
   format: 'json',
   fields: [
-    {
-      name: 'sections',
-      label: 'Sections',
-      type: 'object',
-      list: true,
-      fields: [
-        title,
-        author,
-        body,
-      ],
-    },
+    title,
+    author,
+    body,
   ],
 }
 

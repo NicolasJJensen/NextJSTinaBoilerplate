@@ -5,7 +5,7 @@ fragment SeoParts on Seo {
 
 fragment NavbarParts on Navbar {
   logo
-  navbarLinks {
+  links {
     __typename
     label
     url
@@ -81,10 +81,7 @@ fragment HomePageParts on HomePage {
 }
 
 fragment TestPageParts on TestPage {
-  sections {
-    __typename
-    title
-    author
-    body
-  }
+  title
+  author
+  body
 }

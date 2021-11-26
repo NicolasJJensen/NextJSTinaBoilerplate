@@ -6,12 +6,11 @@ import { cn } from '@/helpers/classNames'
 import styles from './navbar.module.scss'
 
 export default function Navbar(props: PropsType) {
-
   const layoutClass = {
     'Left Aligned Links': styles.leftLinks,
     'Right Aligned Links': styles.rightLinks,
   }[props.layout || 'Left Aligned Links'] as string
-  
+
   const navClasses = [
     styles.navbar,
     props.fixed ? styles.fixed: '',
@@ -26,9 +25,9 @@ export default function Navbar(props: PropsType) {
         </a>
       </Link>
       <ul>
-        {props.navbarLinks?.map((navbarLink, i) => (
+        {props.links?.map((links, i) => (
             <li key={i}>
-              <Link href={navbarLink?.url || '#'}>{navbarLink?.label || ''}</Link>
+              <Link href={links?.url || '#'}>{links?.label || ''}</Link>
             </li>
           ))}
       </ul>

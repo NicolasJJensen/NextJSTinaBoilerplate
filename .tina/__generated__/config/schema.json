@@ -31,8 +31,8 @@
         },
         {
           "list": true,
-          "label": "Navbar Links",
-          "name": "navbarLinks",
+          "label": "Links",
+          "name": "links",
           "type": "object",
           "fields": [
             {
@@ -316,28 +316,20 @@
       "format": "json",
       "fields": [
         {
-          "name": "sections",
-          "label": "Sections",
-          "type": "object",
-          "list": true,
-          "fields": [
-            {
-              "label": "Title",
-              "name": "title",
-              "type": "string"
-            },
-            {
-              "label": "Author",
-              "name": "author",
-              "type": "string"
-            },
-            {
-              "label": "Body",
-              "name": "body",
-              "type": "string",
-              "isBody": true
-            }
-          ]
+          "label": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "label": "Author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "label": "Body",
+          "name": "body",
+          "type": "string",
+          "isBody": true
         }
       ]
     }

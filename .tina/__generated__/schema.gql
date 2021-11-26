@@ -110,14 +110,14 @@ type SeoConnection implements Connection {
   edges: [SeoConnectionEdges]
 }
 
-type NavbarNavbarLinks {
+type NavbarLinks {
   label: String
   url: String
 }
 
 type Navbar {
   logo: String
-  navbarLinks: [NavbarNavbarLinks]
+  links: [NavbarLinks]
   fixed: Boolean
   layout: String
 }
@@ -261,14 +261,10 @@ type HomePageConnection implements Connection {
   edges: [HomePageConnectionEdges]
 }
 
-type TestPageSections {
+type TestPage {
   title: String
   author: String
   body: String
-}
-
-type TestPage {
-  sections: [TestPageSections]
 }
 
 type TestPageDocument implements Node & Document {
@@ -320,14 +316,14 @@ input SeoMutation {
   description: String
 }
 
-input NavbarNavbarLinksMutation {
+input NavbarLinksMutation {
   label: String
   url: String
 }
 
 input NavbarMutation {
   logo: String
-  navbarLinks: [NavbarNavbarLinksMutation]
+  links: [NavbarLinksMutation]
   fixed: Boolean
   layout: String
 }
@@ -419,14 +415,10 @@ input HomePageMutation {
   sections: [HomePageSectionsMutation]
 }
 
-input TestPageSectionsMutation {
+input TestPageMutation {
   title: String
   author: String
   body: String
-}
-
-input TestPageMutation {
-  sections: [TestPageSectionsMutation]
 }
 
 schema {
