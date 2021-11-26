@@ -1,13 +1,18 @@
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import Head from 'next/head'
 
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-function Layout({ children, ...props }: { children: React.ReactNode } & any) {
+function Layout({ children, navbarData, footerData, seoData }: { children: React.ReactNode } & any) {
 
   return (
     <>
-      <Navbar {...props.navbarData} />
+      <Head>
+        <title>{seoData?.title}</title>
+        <meta name='description' content={seoData?.description}></meta>
+      </Head>
+      <Navbar {...navbarData} />
 
       {/* Allows Pages to Animate When Un-mounting */}
       <AnimateSharedLayout>
@@ -20,7 +25,7 @@ function Layout({ children, ...props }: { children: React.ReactNode } & any) {
         </AnimatePresence>
       </AnimateSharedLayout>
 
-      <Footer {...props.footerData} />
+      <Footer {...footerData} />
     </>
   )
 }

@@ -1,40 +1,43 @@
 import type { NextPage } from 'next'
-// import { GetServerSideProps } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
 
 // import client from '@/helpers/shopify-client'
 import styles from '@/styles/index.module.scss'
 import useLoadingUrl from '@/hooks/useLoadingUrl'
 
-import ProductCard from '@/components/ProductCard'
+import { staticRequest } from 'tinacms'
+import TinaGQLQuery, { PropsType, ReturnedGQLDataType } from '@/lib/gql/homePageQuery'
 
 
 const Home: NextPage = (props: any) => {
   const loadingUrl = useLoadingUrl()
 
   return (
-    <>
-      <Head>
-        <title>A Little Lacey</title>
-        <meta name="description" content="Little girls dresses shop" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.productsList}>
-        {/* {props.products.map((product: any) => (
-          <Link key={product.id} href={`/product/${product.id}`}>
-            <a>
-              <ProductCard {...product} new={true} outOfStock={true} sale={true} bestSeller={false} whRatio={0.75} loading={loadingUrl === `/product/${product.id}`} />
-            </a>
-          </Link>
-        ))} */}
-      </main>
-    </>
+    <main className={styles.productsList}>
+      {/* {props.products.map((product: any) => (
+        <Link key={product.id} href={`/product/${product.id}`}>
+          <a>
+            <ProductCard {...product} new={true} outOfStock={true} sale={true} bestSeller={false} whRatio={0.75} loading={loadingUrl === `/product/${product.id}`} />
+          </a>
+        </Link>
+      ))} */}
+    </main>
   )
 }
 
 export default Home
+
+export async function getStaticProps() {
+  const variables = { relativePath: 'home.json' }
+  const data: ReturnedGQLDataType = (await staticRequest({ query: TinaGQLQuery, variables: variables })) as ReturnedGQLDataType
+
+  return {
+    props: {
+      variables: variables,
+      query: TinaGQLQuery,
+      data: data,
+    }
+  }
+}
 
 // This function runs before the page is rendered
 // Use to get all product information
