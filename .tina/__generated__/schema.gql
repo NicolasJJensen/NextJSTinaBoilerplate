@@ -52,10 +52,10 @@ type Query {
   getSeoList(before: String, after: String, first: Int, last: Int): SeoConnection!
   getNavbarDocument(relativePath: String): NavbarDocument!
   getNavbarList(before: String, after: String, first: Int, last: Int): NavbarConnection!
-  getHomePageContentDocument(relativePath: String): HomePageContentDocument!
-  getHomePageContentList(before: String, after: String, first: Int, last: Int): HomePageContentConnection!
   getFooterDocument(relativePath: String): FooterDocument!
   getFooterList(before: String, after: String, first: Int, last: Int): FooterConnection!
+  getHomePageDocument(relativePath: String): HomePageDocument!
+  getHomePageList(before: String, after: String, first: Int, last: Int): HomePageConnection!
 }
 
 type DocumentConnectionEdges {
@@ -81,7 +81,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = SeoDocument | NavbarDocument | HomePageContentDocument | FooterDocument
+union DocumentNode = SeoDocument | NavbarDocument | FooterDocument | HomePageDocument
 
 type Seo {
   title: String
@@ -137,93 +137,6 @@ type NavbarConnection implements Connection {
   edges: [NavbarConnectionEdges]
 }
 
-type HomePageContentSectionsCarouselButton {
-  text: String
-  url: String
-}
-
-type HomePageContentSectionsCarousel {
-  x: Int
-  y: Int
-  images: [String]
-  mainText: String
-  description: String
-  button: HomePageContentSectionsCarouselButton
-  delay: Int
-}
-
-type HomePageContentSectionsTrustIconsBadges {
-  icon: String
-  text: String
-}
-
-type HomePageContentSectionsTrustIcons {
-  badges: [HomePageContentSectionsTrustIconsBadges]
-}
-
-type HomePageContentSectionsSingleCollectionPreview {
-  collection: String
-  numImages: Int
-}
-
-type HomePageContentSectionsMultipleCollectionsPreview {
-  titleText: String
-  collections: [String]
-}
-
-type HomePageContentSectionsSocialMediaIntegration {
-  socialMedia: String
-  numImages: Int
-}
-
-type HomePageContentSectionsTestimonialsUserTestimonials {
-  quote: String
-  user: String
-  website: String
-  date: String
-}
-
-type HomePageContentSectionsTestimonials {
-  titleText: String
-  userTestimonials: [HomePageContentSectionsTestimonialsUserTestimonials]
-}
-
-type HomePageContentSectionsAlternatingImageBlocksImageBlocks {
-  image: String
-  titleText: String
-  paragraphs: [String]
-}
-
-type HomePageContentSectionsAlternatingImageBlocks {
-  imageBlocks: [HomePageContentSectionsAlternatingImageBlocksImageBlocks]
-}
-
-union HomePageContentSections = HomePageContentSectionsCarousel | HomePageContentSectionsTrustIcons | HomePageContentSectionsSingleCollectionPreview | HomePageContentSectionsMultipleCollectionsPreview | HomePageContentSectionsSocialMediaIntegration | HomePageContentSectionsTestimonials | HomePageContentSectionsAlternatingImageBlocks
-
-type HomePageContent {
-  sections: [HomePageContentSections]
-}
-
-type HomePageContentDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: HomePageContent!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type HomePageContentConnectionEdges {
-  cursor: String
-  node: HomePageContentDocument
-}
-
-type HomePageContentConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [HomePageContentConnectionEdges]
-}
-
 type FooterNavSectionsLinks {
   label: String
   url: String
@@ -258,6 +171,93 @@ type FooterConnection implements Connection {
   edges: [FooterConnectionEdges]
 }
 
+type HomePageSectionsCarouselButton {
+  text: String
+  url: String
+}
+
+type HomePageSectionsCarousel {
+  x: Int
+  y: Int
+  images: [String]
+  mainText: String
+  description: String
+  button: HomePageSectionsCarouselButton
+  delay: Int
+}
+
+type HomePageSectionsTrustIconsBadges {
+  icon: String
+  text: String
+}
+
+type HomePageSectionsTrustIcons {
+  badges: [HomePageSectionsTrustIconsBadges]
+}
+
+type HomePageSectionsSingleCollectionPreview {
+  collection: String
+  numImages: Int
+}
+
+type HomePageSectionsMultipleCollectionsPreview {
+  titleText: String
+  collections: [String]
+}
+
+type HomePageSectionsSocialMediaIntegration {
+  socialMedia: String
+  numImages: Int
+}
+
+type HomePageSectionsTestimonialsUserTestimonials {
+  quote: String
+  user: String
+  website: String
+  date: String
+}
+
+type HomePageSectionsTestimonials {
+  titleText: String
+  userTestimonials: [HomePageSectionsTestimonialsUserTestimonials]
+}
+
+type HomePageSectionsAlternatingImageBlocksImageBlocks {
+  image: String
+  titleText: String
+  paragraphs: [String]
+}
+
+type HomePageSectionsAlternatingImageBlocks {
+  imageBlocks: [HomePageSectionsAlternatingImageBlocksImageBlocks]
+}
+
+union HomePageSections = HomePageSectionsCarousel | HomePageSectionsTrustIcons | HomePageSectionsSingleCollectionPreview | HomePageSectionsMultipleCollectionsPreview | HomePageSectionsSocialMediaIntegration | HomePageSectionsTestimonials | HomePageSectionsAlternatingImageBlocks
+
+type HomePage {
+  sections: [HomePageSections]
+}
+
+type HomePageDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: HomePage!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type HomePageConnectionEdges {
+  cursor: String
+  node: HomePageDocument
+}
+
+type HomePageConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [HomePageConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -266,17 +266,17 @@ type Mutation {
   createSeoDocument(relativePath: String!, params: SeoMutation!): SeoDocument!
   updateNavbarDocument(relativePath: String!, params: NavbarMutation!): NavbarDocument!
   createNavbarDocument(relativePath: String!, params: NavbarMutation!): NavbarDocument!
-  updateHomePageContentDocument(relativePath: String!, params: HomePageContentMutation!): HomePageContentDocument!
-  createHomePageContentDocument(relativePath: String!, params: HomePageContentMutation!): HomePageContentDocument!
   updateFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
   createFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
+  updateHomePageDocument(relativePath: String!, params: HomePageMutation!): HomePageDocument!
+  createHomePageDocument(relativePath: String!, params: HomePageMutation!): HomePageDocument!
 }
 
 input DocumentMutation {
   seo: SeoMutation
   navbar: NavbarMutation
-  homePageContent: HomePageContentMutation
   footer: FooterMutation
+  homePage: HomePageMutation
 }
 
 input SeoMutation {
@@ -293,81 +293,6 @@ input NavbarMutation {
   navbarLinks: [NavbarNavbarLinksMutation]
 }
 
-input HomePageContentSectionsCarouselButtonMutation {
-  text: String
-  url: String
-}
-
-input HomePageContentSectionsCarouselMutation {
-  x: Int
-  y: Int
-  images: [String]
-  mainText: String
-  description: String
-  button: HomePageContentSectionsCarouselButtonMutation
-  delay: Int
-}
-
-input HomePageContentSectionsTrustIconsBadgesMutation {
-  icon: String
-  text: String
-}
-
-input HomePageContentSectionsTrustIconsMutation {
-  badges: [HomePageContentSectionsTrustIconsBadgesMutation]
-}
-
-input HomePageContentSectionsSingleCollectionPreviewMutation {
-  collection: String
-  numImages: Int
-}
-
-input HomePageContentSectionsMultipleCollectionsPreviewMutation {
-  titleText: String
-  collections: [String]
-}
-
-input HomePageContentSectionsSocialMediaIntegrationMutation {
-  socialMedia: String
-  numImages: Int
-}
-
-input HomePageContentSectionsTestimonialsUserTestimonialsMutation {
-  quote: String
-  user: String
-  website: String
-  date: String
-}
-
-input HomePageContentSectionsTestimonialsMutation {
-  titleText: String
-  userTestimonials: [HomePageContentSectionsTestimonialsUserTestimonialsMutation]
-}
-
-input HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation {
-  image: String
-  titleText: String
-  paragraphs: [String]
-}
-
-input HomePageContentSectionsAlternatingImageBlocksMutation {
-  imageBlocks: [HomePageContentSectionsAlternatingImageBlocksImageBlocksMutation]
-}
-
-input HomePageContentSectionsMutation {
-  carousel: HomePageContentSectionsCarouselMutation
-  trustIcons: HomePageContentSectionsTrustIconsMutation
-  singleCollectionPreview: HomePageContentSectionsSingleCollectionPreviewMutation
-  multipleCollectionsPreview: HomePageContentSectionsMultipleCollectionsPreviewMutation
-  socialMediaIntegration: HomePageContentSectionsSocialMediaIntegrationMutation
-  testimonials: HomePageContentSectionsTestimonialsMutation
-  alternatingImageBlocks: HomePageContentSectionsAlternatingImageBlocksMutation
-}
-
-input HomePageContentMutation {
-  sections: [HomePageContentSectionsMutation]
-}
-
 input FooterNavSectionsLinksMutation {
   label: String
   url: String
@@ -380,6 +305,81 @@ input FooterNavSectionsMutation {
 
 input FooterMutation {
   navSections: [FooterNavSectionsMutation]
+}
+
+input HomePageSectionsCarouselButtonMutation {
+  text: String
+  url: String
+}
+
+input HomePageSectionsCarouselMutation {
+  x: Int
+  y: Int
+  images: [String]
+  mainText: String
+  description: String
+  button: HomePageSectionsCarouselButtonMutation
+  delay: Int
+}
+
+input HomePageSectionsTrustIconsBadgesMutation {
+  icon: String
+  text: String
+}
+
+input HomePageSectionsTrustIconsMutation {
+  badges: [HomePageSectionsTrustIconsBadgesMutation]
+}
+
+input HomePageSectionsSingleCollectionPreviewMutation {
+  collection: String
+  numImages: Int
+}
+
+input HomePageSectionsMultipleCollectionsPreviewMutation {
+  titleText: String
+  collections: [String]
+}
+
+input HomePageSectionsSocialMediaIntegrationMutation {
+  socialMedia: String
+  numImages: Int
+}
+
+input HomePageSectionsTestimonialsUserTestimonialsMutation {
+  quote: String
+  user: String
+  website: String
+  date: String
+}
+
+input HomePageSectionsTestimonialsMutation {
+  titleText: String
+  userTestimonials: [HomePageSectionsTestimonialsUserTestimonialsMutation]
+}
+
+input HomePageSectionsAlternatingImageBlocksImageBlocksMutation {
+  image: String
+  titleText: String
+  paragraphs: [String]
+}
+
+input HomePageSectionsAlternatingImageBlocksMutation {
+  imageBlocks: [HomePageSectionsAlternatingImageBlocksImageBlocksMutation]
+}
+
+input HomePageSectionsMutation {
+  carousel: HomePageSectionsCarouselMutation
+  trustIcons: HomePageSectionsTrustIconsMutation
+  singleCollectionPreview: HomePageSectionsSingleCollectionPreviewMutation
+  multipleCollectionsPreview: HomePageSectionsMultipleCollectionsPreviewMutation
+  socialMediaIntegration: HomePageSectionsSocialMediaIntegrationMutation
+  testimonials: HomePageSectionsTestimonialsMutation
+  alternatingImageBlocks: HomePageSectionsAlternatingImageBlocksMutation
+}
+
+input HomePageMutation {
+  sections: [HomePageSectionsMutation]
 }
 
 schema {

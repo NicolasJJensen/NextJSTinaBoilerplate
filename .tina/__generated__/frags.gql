@@ -11,10 +11,22 @@ fragment NavbarParts on Navbar {
   }
 }
 
-fragment HomePageContentParts on HomePageContent {
+fragment FooterParts on Footer {
+  navSections {
+    __typename
+    links {
+      __typename
+      label
+      url
+    }
+    title
+  }
+}
+
+fragment HomePageParts on HomePage {
   sections {
     __typename
-    ... on HomePageContentSectionsCarousel {
+    ... on HomePageSectionsCarousel {
       x
       y
       images
@@ -27,26 +39,26 @@ fragment HomePageContentParts on HomePageContent {
       }
       delay
     }
-    ... on HomePageContentSectionsTrustIcons {
+    ... on HomePageSectionsTrustIcons {
       badges {
         __typename
         icon
         text
       }
     }
-    ... on HomePageContentSectionsSingleCollectionPreview {
+    ... on HomePageSectionsSingleCollectionPreview {
       collection
       numImages
     }
-    ... on HomePageContentSectionsMultipleCollectionsPreview {
+    ... on HomePageSectionsMultipleCollectionsPreview {
       titleText
       collections
     }
-    ... on HomePageContentSectionsSocialMediaIntegration {
+    ... on HomePageSectionsSocialMediaIntegration {
       socialMedia
       numImages
     }
-    ... on HomePageContentSectionsTestimonials {
+    ... on HomePageSectionsTestimonials {
       titleText
       userTestimonials {
         __typename
@@ -56,7 +68,7 @@ fragment HomePageContentParts on HomePageContent {
         date
       }
     }
-    ... on HomePageContentSectionsAlternatingImageBlocks {
+    ... on HomePageSectionsAlternatingImageBlocks {
       imageBlocks {
         __typename
         image
@@ -64,17 +76,5 @@ fragment HomePageContentParts on HomePageContent {
         paragraphs
       }
     }
-  }
-}
-
-fragment FooterParts on Footer {
-  navSections {
-    __typename
-    links {
-      __typename
-      label
-      url
-    }
-    title
   }
 }

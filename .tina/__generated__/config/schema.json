@@ -45,9 +45,48 @@
       ]
     },
     {
+      "path": "content/footer",
+      "label": "Footer",
+      "name": "footer",
+      "format": "json",
+      "fields": [
+        {
+          "type": "object",
+          "list": true,
+          "label": "Nav Sections",
+          "name": "navSections",
+          "fields": [
+            {
+              "type": "object",
+              "list": true,
+              "label": "Navigation Links",
+              "name": "links",
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Label",
+                  "name": "label"
+                },
+                {
+                  "type": "string",
+                  "label": "URL",
+                  "name": "url"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Section Title",
+              "name": "title"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "content/pages",
-      "label": "Home Page Content",
-      "name": "homePageContent",
+      "label": "Home Page",
+      "name": "homePage",
       "format": "json",
       "fields": [
         {
@@ -256,45 +295,6 @@
                   ]
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "content/footer",
-      "label": "Footer",
-      "name": "footer",
-      "format": "json",
-      "fields": [
-        {
-          "type": "object",
-          "list": true,
-          "label": "Nav Sections",
-          "name": "navSections",
-          "fields": [
-            {
-              "type": "object",
-              "list": true,
-              "label": "Navigation Links",
-              "name": "links",
-              "fields": [
-                {
-                  "type": "string",
-                  "label": "Label",
-                  "name": "label"
-                },
-                {
-                  "type": "string",
-                  "label": "URL",
-                  "name": "url"
-                }
-              ]
-            },
-            {
-              "type": "string",
-              "label": "Section Title",
-              "name": "title"
             }
           ]
         }

@@ -9,14 +9,14 @@ import { SeoPartsFragmentDoc, NavbarPartsFragmentDoc, FooterPartsFragmentDoc, Se
 export default function createFullQuery(query: string) {
   return `
   query GetData($relativePath: String!) {
-    ${seoQuery}
     ${query}
     ${navbarQuery}
     ${footerQuery}
+    ${seoQuery}
   }
-  ${SeoPartsFragmentDoc}
   ${NavbarPartsFragmentDoc}
   ${FooterPartsFragmentDoc}
+  ${SeoPartsFragmentDoc}
   `
 }
 

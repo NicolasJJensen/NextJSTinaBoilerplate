@@ -5,8 +5,8 @@
     "collections": [
       "seo",
       "navbar",
-      "homePageContent",
-      "footer"
+      "footer",
+      "homePage"
     ]
   },
   "Node": {
@@ -79,5 +79,30 @@
     "type": "SeoConnection",
     "resolveType": "collectionDocumentList",
     "collection": "seo"
+  },
+  "HomePageSections": {
+    "type": "HomePageSections",
+    "resolveType": "unionData",
+    "typeMap": {
+      "carousel": "HomePageSectionsCarousel",
+      "trustIcons": "HomePageSectionsTrustIcons",
+      "singleCollectionPreview": "HomePageSectionsSingleCollectionPreview",
+      "multipleCollectionsPreview": "HomePageSectionsMultipleCollectionsPreview",
+      "socialMediaIntegration": "HomePageSectionsSocialMediaIntegration",
+      "testimonials": "HomePageSectionsTestimonials",
+      "alternatingImageBlocks": "HomePageSectionsAlternatingImageBlocks"
+    }
+  },
+  "HomePageDocument": {
+    "type": "HomePageDocument",
+    "resolveType": "collectionDocument",
+    "collection": "homePage",
+    "createHomePageDocument": "create",
+    "updateHomePageDocument": "update"
+  },
+  "HomePageConnection": {
+    "type": "HomePageConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "homePage"
   }
 }

@@ -76,45 +76,6 @@ query getNavbarList {
   }
 }
 
-query getHomePageContentDocument($relativePath: String!) {
-  getHomePageContentDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...HomePageContentParts
-    }
-  }
-}
-
-query getHomePageContentList {
-  getHomePageContentList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...HomePageContentParts
-        }
-      }
-    }
-  }
-}
-
 query getFooterDocument($relativePath: String!) {
   getFooterDocument(relativePath: $relativePath) {
     sys {
@@ -148,6 +109,45 @@ query getFooterList {
         }
         data {
           ...FooterParts
+        }
+      }
+    }
+  }
+}
+
+query getHomePageDocument($relativePath: String!) {
+  getHomePageDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...HomePageParts
+    }
+  }
+}
+
+query getHomePageList {
+  getHomePageList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...HomePageParts
         }
       }
     }

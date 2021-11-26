@@ -73,444 +73,6 @@
       ]
     },
     {
-      "path": "content/pages",
-      "label": "Home Page Content",
-      "name": "homePageContent",
-      "format": "json",
-      "fields": [
-        {
-          "name": "sections",
-          "label": "Sections",
-          "type": "object",
-          "list": true,
-          "templates": [
-            {
-              "label": "Carousel",
-              "name": "carousel",
-              "fields": [
-                {
-                  "label": "X",
-                  "name": "x",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "x"
-                  ]
-                },
-                {
-                  "label": "Y",
-                  "name": "y",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "y"
-                  ]
-                },
-                {
-                  "label": "Images",
-                  "name": "images",
-                  "type": "string",
-                  "list": true,
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "images"
-                  ]
-                },
-                {
-                  "label": "Main Text",
-                  "name": "mainText",
-                  "type": "string",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "mainText"
-                  ]
-                },
-                {
-                  "label": "Description",
-                  "name": "description",
-                  "type": "string",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "description"
-                  ]
-                },
-                {
-                  "label": "Button",
-                  "name": "button",
-                  "type": "object",
-                  "fields": [
-                    {
-                      "label": "Text",
-                      "name": "text",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "carousel",
-                        "button",
-                        "text"
-                      ]
-                    },
-                    {
-                      "label": "URL",
-                      "name": "url",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "carousel",
-                        "button",
-                        "url"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "button"
-                  ]
-                },
-                {
-                  "label": "Delay",
-                  "name": "delay",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "carousel",
-                    "delay"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "carousel"
-              ]
-            },
-            {
-              "label": "Trust Icons",
-              "name": "trustIcons",
-              "fields": [
-                {
-                  "label": "Badges",
-                  "name": "badges",
-                  "type": "object",
-                  "list": true,
-                  "fields": [
-                    {
-                      "label": "Icon",
-                      "name": "icon",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "trustIcons",
-                        "badges",
-                        "icon"
-                      ]
-                    },
-                    {
-                      "label": "Text",
-                      "name": "text",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "trustIcons",
-                        "badges",
-                        "text"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "trustIcons",
-                    "badges"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "trustIcons"
-              ]
-            },
-            {
-              "label": "Single Collection Preview",
-              "name": "singleCollectionPreview",
-              "fields": [
-                {
-                  "label": "Collection",
-                  "name": "collection",
-                  "type": "string",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "singleCollectionPreview",
-                    "collection"
-                  ]
-                },
-                {
-                  "label": "Nº Displayed Products",
-                  "name": "numImages",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "singleCollectionPreview",
-                    "numImages"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "singleCollectionPreview"
-              ]
-            },
-            {
-              "label": "Multiple Collections Preview",
-              "name": "multipleCollectionsPreview",
-              "fields": [
-                {
-                  "label": "Title Text",
-                  "name": "titleText",
-                  "type": "string",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "multipleCollectionsPreview",
-                    "titleText"
-                  ]
-                },
-                {
-                  "label": "Collections",
-                  "name": "collections",
-                  "type": "string",
-                  "list": true,
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "multipleCollectionsPreview",
-                    "collections"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "multipleCollectionsPreview"
-              ]
-            },
-            {
-              "label": "Social Media Integration",
-              "name": "socialMediaIntegration",
-              "fields": [
-                {
-                  "label": "Social Media",
-                  "name": "socialMedia",
-                  "type": "string",
-                  "options": [
-                    "instagram",
-                    "twitter",
-                    "facebook"
-                  ],
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "socialMediaIntegration",
-                    "socialMedia"
-                  ]
-                },
-                {
-                  "label": "Nº Images To Display",
-                  "name": "numImages",
-                  "type": "number",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "socialMediaIntegration",
-                    "numImages"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "socialMediaIntegration"
-              ]
-            },
-            {
-              "label": "Testimonials",
-              "name": "testimonials",
-              "fields": [
-                {
-                  "label": "Title Text",
-                  "name": "titleText",
-                  "type": "string",
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "testimonials",
-                    "titleText"
-                  ]
-                },
-                {
-                  "label": "User Testimonials",
-                  "name": "userTestimonials",
-                  "type": "object",
-                  "list": true,
-                  "fields": [
-                    {
-                      "label": "Quote",
-                      "name": "quote",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "testimonials",
-                        "userTestimonials",
-                        "quote"
-                      ]
-                    },
-                    {
-                      "label": "User",
-                      "name": "user",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "testimonials",
-                        "userTestimonials",
-                        "user"
-                      ]
-                    },
-                    {
-                      "label": "Website",
-                      "name": "website",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "testimonials",
-                        "userTestimonials",
-                        "website"
-                      ]
-                    },
-                    {
-                      "label": "Date",
-                      "name": "date",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "testimonials",
-                        "userTestimonials",
-                        "date"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "testimonials",
-                    "userTestimonials"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "testimonials"
-              ]
-            },
-            {
-              "label": "Alternating Image Blocks",
-              "name": "alternatingImageBlocks",
-              "fields": [
-                {
-                  "label": "Image Blocks",
-                  "name": "imageBlocks",
-                  "type": "object",
-                  "list": true,
-                  "fields": [
-                    {
-                      "label": "Image",
-                      "name": "image",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "alternatingImageBlocks",
-                        "imageBlocks",
-                        "image"
-                      ]
-                    },
-                    {
-                      "label": "Title Text",
-                      "name": "titleText",
-                      "type": "string",
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "alternatingImageBlocks",
-                        "imageBlocks",
-                        "titleText"
-                      ]
-                    },
-                    {
-                      "label": "Paragraphs",
-                      "name": "paragraphs",
-                      "type": "string",
-                      "list": true,
-                      "namespace": [
-                        "homePageContent",
-                        "sections",
-                        "alternatingImageBlocks",
-                        "imageBlocks",
-                        "paragraphs"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "homePageContent",
-                    "sections",
-                    "alternatingImageBlocks",
-                    "imageBlocks"
-                  ]
-                }
-              ],
-              "namespace": [
-                "homePageContent",
-                "sections",
-                "alternatingImageBlocks"
-              ]
-            }
-          ],
-          "namespace": [
-            "homePageContent",
-            "sections"
-          ]
-        }
-      ],
-      "namespace": [
-        "homePageContent"
-      ]
-    },
-    {
       "path": "content/footer",
       "label": "Footer",
       "name": "footer",
@@ -576,6 +138,444 @@
       ],
       "namespace": [
         "footer"
+      ]
+    },
+    {
+      "path": "content/pages",
+      "label": "Home Page",
+      "name": "homePage",
+      "format": "json",
+      "fields": [
+        {
+          "name": "sections",
+          "label": "Sections",
+          "type": "object",
+          "list": true,
+          "templates": [
+            {
+              "label": "Carousel",
+              "name": "carousel",
+              "fields": [
+                {
+                  "label": "X",
+                  "name": "x",
+                  "type": "number",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "x"
+                  ]
+                },
+                {
+                  "label": "Y",
+                  "name": "y",
+                  "type": "number",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "y"
+                  ]
+                },
+                {
+                  "label": "Images",
+                  "name": "images",
+                  "type": "string",
+                  "list": true,
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "images"
+                  ]
+                },
+                {
+                  "label": "Main Text",
+                  "name": "mainText",
+                  "type": "string",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "mainText"
+                  ]
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "type": "string",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "description"
+                  ]
+                },
+                {
+                  "label": "Button",
+                  "name": "button",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "carousel",
+                        "button",
+                        "text"
+                      ]
+                    },
+                    {
+                      "label": "URL",
+                      "name": "url",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "carousel",
+                        "button",
+                        "url"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "button"
+                  ]
+                },
+                {
+                  "label": "Delay",
+                  "name": "delay",
+                  "type": "number",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "carousel",
+                    "delay"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "carousel"
+              ]
+            },
+            {
+              "label": "Trust Icons",
+              "name": "trustIcons",
+              "fields": [
+                {
+                  "label": "Badges",
+                  "name": "badges",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Icon",
+                      "name": "icon",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "trustIcons",
+                        "badges",
+                        "icon"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "trustIcons",
+                        "badges",
+                        "text"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "trustIcons",
+                    "badges"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "trustIcons"
+              ]
+            },
+            {
+              "label": "Single Collection Preview",
+              "name": "singleCollectionPreview",
+              "fields": [
+                {
+                  "label": "Collection",
+                  "name": "collection",
+                  "type": "string",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "singleCollectionPreview",
+                    "collection"
+                  ]
+                },
+                {
+                  "label": "Nº Displayed Products",
+                  "name": "numImages",
+                  "type": "number",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "singleCollectionPreview",
+                    "numImages"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "singleCollectionPreview"
+              ]
+            },
+            {
+              "label": "Multiple Collections Preview",
+              "name": "multipleCollectionsPreview",
+              "fields": [
+                {
+                  "label": "Title Text",
+                  "name": "titleText",
+                  "type": "string",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "multipleCollectionsPreview",
+                    "titleText"
+                  ]
+                },
+                {
+                  "label": "Collections",
+                  "name": "collections",
+                  "type": "string",
+                  "list": true,
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "multipleCollectionsPreview",
+                    "collections"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "multipleCollectionsPreview"
+              ]
+            },
+            {
+              "label": "Social Media Integration",
+              "name": "socialMediaIntegration",
+              "fields": [
+                {
+                  "label": "Social Media",
+                  "name": "socialMedia",
+                  "type": "string",
+                  "options": [
+                    "instagram",
+                    "twitter",
+                    "facebook"
+                  ],
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "socialMediaIntegration",
+                    "socialMedia"
+                  ]
+                },
+                {
+                  "label": "Nº Images To Display",
+                  "name": "numImages",
+                  "type": "number",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "socialMediaIntegration",
+                    "numImages"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "socialMediaIntegration"
+              ]
+            },
+            {
+              "label": "Testimonials",
+              "name": "testimonials",
+              "fields": [
+                {
+                  "label": "Title Text",
+                  "name": "titleText",
+                  "type": "string",
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "testimonials",
+                    "titleText"
+                  ]
+                },
+                {
+                  "label": "User Testimonials",
+                  "name": "userTestimonials",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Quote",
+                      "name": "quote",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "quote"
+                      ]
+                    },
+                    {
+                      "label": "User",
+                      "name": "user",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "user"
+                      ]
+                    },
+                    {
+                      "label": "Website",
+                      "name": "website",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "website"
+                      ]
+                    },
+                    {
+                      "label": "Date",
+                      "name": "date",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "testimonials",
+                        "userTestimonials",
+                        "date"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "testimonials",
+                    "userTestimonials"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "testimonials"
+              ]
+            },
+            {
+              "label": "Alternating Image Blocks",
+              "name": "alternatingImageBlocks",
+              "fields": [
+                {
+                  "label": "Image Blocks",
+                  "name": "imageBlocks",
+                  "type": "object",
+                  "list": true,
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Title Text",
+                      "name": "titleText",
+                      "type": "string",
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "titleText"
+                      ]
+                    },
+                    {
+                      "label": "Paragraphs",
+                      "name": "paragraphs",
+                      "type": "string",
+                      "list": true,
+                      "namespace": [
+                        "homePage",
+                        "sections",
+                        "alternatingImageBlocks",
+                        "imageBlocks",
+                        "paragraphs"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "homePage",
+                    "sections",
+                    "alternatingImageBlocks",
+                    "imageBlocks"
+                  ]
+                }
+              ],
+              "namespace": [
+                "homePage",
+                "sections",
+                "alternatingImageBlocks"
+              ]
+            }
+          ],
+          "namespace": [
+            "homePage",
+            "sections"
+          ]
+        }
+      ],
+      "namespace": [
+        "homePage"
       ]
     }
   ],

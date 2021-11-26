@@ -206,8 +206,8 @@ const alternatingImageBlocksTemplate: TinaTemplate = {
 
 const homePageCollection: TinaCollection = {
   path: 'content/pages',
-  label: 'Home Page Content',
-  name: 'homePageContent',
+  label: 'Home Page',
+  name: 'homePage',
   format: 'json',
   fields: [
     {
