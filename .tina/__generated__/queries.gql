@@ -1,3 +1,42 @@
+query getSeoDocument($relativePath: String!) {
+  getSeoDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...SeoParts
+    }
+  }
+}
+
+query getSeoList {
+  getSeoList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...SeoParts
+        }
+      }
+    }
+  }
+}
+
 query getNavbarDocument($relativePath: String!) {
   getNavbarDocument(relativePath: $relativePath) {
     sys {

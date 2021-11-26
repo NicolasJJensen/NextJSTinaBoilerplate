@@ -36,10 +36,12 @@ const Test: NextPage<PropsType> = (props) => {
 export default Test
 
 export async function getStaticProps() {
-  const data: ReturnedGQLDataType = (await staticRequest({ query: TinaGQLQuery })) as ReturnedGQLDataType
+  const variables = { relativePath: 'home.json' }
+  const data: ReturnedGQLDataType = (await staticRequest({ query: TinaGQLQuery, variables: variables })) as ReturnedGQLDataType
 
   return {
     props: {
+      variables: variables,
       query: TinaGQLQuery,
       ...mapDataForProps(data)
     }

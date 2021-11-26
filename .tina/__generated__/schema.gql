@@ -48,6 +48,8 @@ type Query {
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
   getDocumentFields: JSON!
+  getSeoDocument(relativePath: String): SeoDocument!
+  getSeoList(before: String, after: String, first: Int, last: Int): SeoConnection!
   getNavbarDocument(relativePath: String): NavbarDocument!
   getNavbarList(before: String, after: String, first: Int, last: Int): NavbarConnection!
   getHomePageContentDocument(relativePath: String): HomePageContentDocument!
@@ -79,7 +81,32 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = NavbarDocument | HomePageContentDocument | FooterDocument
+union DocumentNode = SeoDocument | NavbarDocument | HomePageContentDocument | FooterDocument
+
+type Seo {
+  title: String
+  description: String
+}
+
+type SeoDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Seo!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type SeoConnectionEdges {
+  cursor: String
+  node: SeoDocument
+}
+
+type SeoConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [SeoConnectionEdges]
+}
 
 type NavbarNavbarLinks {
   label: String
@@ -235,6 +262,8 @@ type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updateSeoDocument(relativePath: String!, params: SeoMutation!): SeoDocument!
+  createSeoDocument(relativePath: String!, params: SeoMutation!): SeoDocument!
   updateNavbarDocument(relativePath: String!, params: NavbarMutation!): NavbarDocument!
   createNavbarDocument(relativePath: String!, params: NavbarMutation!): NavbarDocument!
   updateHomePageContentDocument(relativePath: String!, params: HomePageContentMutation!): HomePageContentDocument!
@@ -244,9 +273,15 @@ type Mutation {
 }
 
 input DocumentMutation {
+  seo: SeoMutation
   navbar: NavbarMutation
   homePageContent: HomePageContentMutation
   footer: FooterMutation
+}
+
+input SeoMutation {
+  title: String
+  description: String
 }
 
 input NavbarNavbarLinksMutation {

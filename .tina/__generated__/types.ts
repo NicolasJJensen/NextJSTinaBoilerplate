@@ -67,6 +67,8 @@ export type Query = {
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
   getDocumentFields: Scalars['JSON'];
+  getSeoDocument: SeoDocument;
+  getSeoList: SeoConnection;
   getNavbarDocument: NavbarDocument;
   getNavbarList: NavbarConnection;
   getHomePageContentDocument: HomePageContentDocument;
@@ -93,6 +95,19 @@ export type QueryGetDocumentArgs = {
 
 
 export type QueryGetDocumentListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetSeoDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetSeoListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -172,7 +187,36 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Int']>;
 };
 
-export type DocumentNode = NavbarDocument | HomePageContentDocument | FooterDocument;
+export type DocumentNode = SeoDocument | NavbarDocument | HomePageContentDocument | FooterDocument;
+
+export type Seo = {
+  __typename?: 'Seo';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type SeoDocument = Node & Document & {
+  __typename?: 'SeoDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Seo;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type SeoConnectionEdges = {
+  __typename?: 'SeoConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<SeoDocument>;
+};
+
+export type SeoConnection = Connection & {
+  __typename?: 'SeoConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<SeoConnectionEdges>>>;
+};
 
 export type NavbarNavbarLinks = {
   __typename?: 'NavbarNavbarLinks';
@@ -355,6 +399,8 @@ export type Mutation = {
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
   createDocument: DocumentNode;
+  updateSeoDocument: SeoDocument;
+  createSeoDocument: SeoDocument;
   updateNavbarDocument: NavbarDocument;
   createNavbarDocument: NavbarDocument;
   updateHomePageContentDocument: HomePageContentDocument;
@@ -382,6 +428,18 @@ export type MutationCreateDocumentArgs = {
   collection?: InputMaybe<Scalars['String']>;
   relativePath: Scalars['String'];
   params: DocumentMutation;
+};
+
+
+export type MutationUpdateSeoDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: SeoMutation;
+};
+
+
+export type MutationCreateSeoDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: SeoMutation;
 };
 
 
@@ -421,9 +479,15 @@ export type MutationCreateFooterDocumentArgs = {
 };
 
 export type DocumentMutation = {
+  seo?: InputMaybe<SeoMutation>;
   navbar?: InputMaybe<NavbarMutation>;
   homePageContent?: InputMaybe<HomePageContentMutation>;
   footer?: InputMaybe<FooterMutation>;
+};
+
+export type SeoMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
 };
 
 export type NavbarNavbarLinksMutation = {
@@ -524,11 +588,25 @@ export type FooterMutation = {
   navSections?: InputMaybe<Array<InputMaybe<FooterNavSectionsMutation>>>;
 };
 
+export type SeoPartsFragment = { __typename?: 'Seo', title?: string | null | undefined, description?: string | null | undefined };
+
 export type NavbarPartsFragment = { __typename?: 'Navbar', navbarLinks?: Array<{ __typename: 'NavbarNavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined };
 
 export type HomePageContentPartsFragment = { __typename?: 'HomePageContent', sections?: Array<{ __typename: 'HomePageContentSectionsCarousel', x?: number | null | undefined, y?: number | null | undefined, images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageContentSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageContentSectionsTrustIcons', badges?: Array<{ __typename: 'HomePageContentSectionsTrustIconsBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSingleCollectionPreview', collection?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsMultipleCollectionsPreview', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageContentSectionsTestimonials', titleText?: string | null | undefined, userTestimonials?: Array<{ __typename: 'HomePageContentSectionsTestimonialsUserTestimonials', quote?: string | null | undefined, user?: string | null | undefined, website?: string | null | undefined, date?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageContentSectionsAlternatingImageBlocks', imageBlocks?: Array<{ __typename: 'HomePageContentSectionsAlternatingImageBlocksImageBlocks', image?: string | null | undefined, titleText?: string | null | undefined, paragraphs?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
 export type FooterPartsFragment = { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+
+export type GetSeoDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetSeoDocumentQuery = { __typename?: 'Query', getSeoDocument: { __typename?: 'SeoDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Seo', title?: string | null | undefined, description?: string | null | undefined } } };
+
+export type GetSeoListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetSeoListQuery = { __typename?: 'Query', getSeoList: { __typename?: 'SeoConnection', totalCount: number, edges?: Array<{ __typename?: 'SeoConnectionEdges', node?: { __typename?: 'SeoDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Seo', title?: string | null | undefined, description?: string | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
 export type GetNavbarDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -566,6 +644,12 @@ export type GetFooterListQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
+export const SeoPartsFragmentDoc = gql`
+    fragment SeoParts on Seo {
+  title
+  description
+}
+    `;
 export const NavbarPartsFragmentDoc = gql`
     fragment NavbarParts on Navbar {
   navbarLinks {
@@ -645,6 +729,47 @@ export const FooterPartsFragmentDoc = gql`
   }
 }
     `;
+export const GetSeoDocumentDocument = gql`
+    query getSeoDocument($relativePath: String!) {
+  getSeoDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...SeoParts
+    }
+  }
+}
+    ${SeoPartsFragmentDoc}`;
+export const GetSeoListDocument = gql`
+    query getSeoList {
+  getSeoList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...SeoParts
+        }
+      }
+    }
+  }
+}
+    ${SeoPartsFragmentDoc}`;
 export const GetNavbarDocumentDocument = gql`
     query getNavbarDocument($relativePath: String!) {
   getNavbarDocument(relativePath: $relativePath) {
@@ -771,7 +896,13 @@ export const GetFooterListDocument = gql`
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      getNavbarDocument(variables: GetNavbarDocumentQueryVariables, options?: C): Promise<{data: GetNavbarDocumentQuery, variables: GetNavbarDocumentQueryVariables, query: string}> {
+      getSeoDocument(variables: GetSeoDocumentQueryVariables, options?: C): Promise<{data: GetSeoDocumentQuery, variables: GetSeoDocumentQueryVariables, query: string}> {
+        return requester<{data: GetSeoDocumentQuery, variables: GetSeoDocumentQueryVariables, query: string}, GetSeoDocumentQueryVariables>(GetSeoDocumentDocument, variables, options);
+      },
+    getSeoList(variables?: GetSeoListQueryVariables, options?: C): Promise<{data: GetSeoListQuery, variables: GetSeoListQueryVariables, query: string}> {
+        return requester<{data: GetSeoListQuery, variables: GetSeoListQueryVariables, query: string}, GetSeoListQueryVariables>(GetSeoListDocument, variables, options);
+      },
+    getNavbarDocument(variables: GetNavbarDocumentQueryVariables, options?: C): Promise<{data: GetNavbarDocumentQuery, variables: GetNavbarDocumentQueryVariables, query: string}> {
         return requester<{data: GetNavbarDocumentQuery, variables: GetNavbarDocumentQueryVariables, query: string}, GetNavbarDocumentQueryVariables>(GetNavbarDocumentDocument, variables, options);
       },
     getNavbarList(variables?: GetNavbarListQueryVariables, options?: C): Promise<{data: GetNavbarListQuery, variables: GetNavbarListQueryVariables, query: string}> {

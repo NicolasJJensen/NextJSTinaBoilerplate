@@ -1,6 +1,35 @@
 {
   "collections": [
     {
+      "path": "content/seo",
+      "label": "SEO",
+      "name": "seo",
+      "format": "json",
+      "fields": [
+        {
+          "label": "Title",
+          "name": "title",
+          "type": "string",
+          "namespace": [
+            "seo",
+            "title"
+          ]
+        },
+        {
+          "label": "Description",
+          "name": "description",
+          "type": "string",
+          "namespace": [
+            "seo",
+            "description"
+          ]
+        }
+      ],
+      "namespace": [
+        "seo"
+      ]
+    },
+    {
       "path": "content/navbar",
       "label": "Navbar",
       "name": "navbar",

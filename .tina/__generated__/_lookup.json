@@ -3,6 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
+      "seo",
       "navbar",
       "homePageContent",
       "footer"
@@ -66,5 +67,17 @@
     "type": "FooterConnection",
     "resolveType": "collectionDocumentList",
     "collection": "footer"
+  },
+  "SeoDocument": {
+    "type": "SeoDocument",
+    "resolveType": "collectionDocument",
+    "collection": "seo",
+    "createSeoDocument": "create",
+    "updateSeoDocument": "update"
+  },
+  "SeoConnection": {
+    "type": "SeoConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "seo"
   }
 }
