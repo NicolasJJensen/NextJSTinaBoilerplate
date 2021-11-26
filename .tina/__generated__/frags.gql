@@ -12,14 +12,14 @@ fragment NavbarParts on Navbar {
 }
 
 fragment FooterParts on Footer {
-  navSections {
+  navigationRow {
     __typename
+    title
     links {
       __typename
       label
       url
     }
-    title
   }
 }
 

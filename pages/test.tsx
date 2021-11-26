@@ -9,7 +9,6 @@ import { staticRequest } from 'tinacms'
 import TinaGQLQuery, { PropsType, ReturnedGQLDataType, mapDataForProps } from '@/lib/gql/homePageQuery'
 
 const Test: NextPage<PropsType> = (props) => {
-
   return (
     <>
       <Head>

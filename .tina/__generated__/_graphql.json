@@ -2087,7 +2087,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "FooterNavSectionsLinks"
+        "value": "FooterNavigationRowLinks"
       },
       "fields": [
         {
@@ -2128,9 +2128,24 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "FooterNavSections"
+        "value": "FooterNavigationRow"
       },
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "title"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -2144,23 +2159,8 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "FooterNavSectionsLinks"
+                "value": "FooterNavigationRowLinks"
               }
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "title"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
             }
           }
         }
@@ -2179,7 +2179,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "navSections"
+            "value": "navigationRow"
           },
           "arguments": [],
           "type": {
@@ -2188,7 +2188,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "FooterNavSections"
+                "value": "FooterNavigationRow"
               }
             }
           }
@@ -4137,7 +4137,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "FooterNavSectionsLinksMutation"
+        "value": "FooterNavigationRowLinksMutation"
       },
       "fields": [
         {
@@ -4174,9 +4174,23 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "FooterNavSectionsMutation"
+        "value": "FooterNavigationRowMutation"
       },
       "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "title"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
         {
           "kind": "InputValueDefinition",
           "name": {
@@ -4189,22 +4203,8 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "FooterNavSectionsLinksMutation"
+                "value": "FooterNavigationRowLinksMutation"
               }
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "title"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
             }
           }
         }
@@ -4221,7 +4221,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "navSections"
+            "value": "navigationRow"
           },
           "type": {
             "kind": "ListType",
@@ -4229,7 +4229,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "FooterNavSectionsMutation"
+                "value": "FooterNavigationRowMutation"
               }
             }
           }

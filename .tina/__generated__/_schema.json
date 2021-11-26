@@ -81,9 +81,19 @@
         {
           "type": "object",
           "list": true,
-          "label": "Nav Sections",
-          "name": "navSections",
+          "label": "Navigation Row",
+          "name": "navigationRow",
           "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "name": "title",
+              "namespace": [
+                "footer",
+                "navigationRow",
+                "title"
+              ]
+            },
             {
               "type": "object",
               "list": true,
@@ -96,7 +106,7 @@
                   "name": "label",
                   "namespace": [
                     "footer",
-                    "navSections",
+                    "navigationRow",
                     "links",
                     "label"
                   ]
@@ -107,7 +117,7 @@
                   "name": "url",
                   "namespace": [
                     "footer",
-                    "navSections",
+                    "navigationRow",
                     "links",
                     "url"
                   ]
@@ -115,24 +125,14 @@
               ],
               "namespace": [
                 "footer",
-                "navSections",
+                "navigationRow",
                 "links"
-              ]
-            },
-            {
-              "type": "string",
-              "label": "Section Title",
-              "name": "title",
-              "namespace": [
-                "footer",
-                "navSections",
-                "title"
               ]
             }
           ],
           "namespace": [
             "footer",
-            "navSections"
+            "navigationRow"
           ]
         }
       ],

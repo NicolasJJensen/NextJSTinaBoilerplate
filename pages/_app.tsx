@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app'
 import App from 'next/app'
 import dynamic from 'next/dynamic'
 
-import { staticRequest } from 'tinacms'
 import { TinaEditProvider } from 'tinacms/dist/edit-state'
 const TinaCMS = dynamic(() => import('tinacms'), { ssr: false })
 
@@ -11,39 +10,32 @@ import '@/styles/globalStyles.scss'
 
 import Layout from '@/components/Layout'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps: { query, variables, data, footer, navbar, seo, ...pageProps } }: AppProps) => {
   return (
     <>
       <TinaEditProvider
         editMode={
           <TinaCMS
-            // Required: The query from your `getStaticProps` request
-            query={pageProps.query}
-            // Required: The variables from your `getStaticProps` request
-            variables={pageProps.variables} // Variables used in your query
-            // Required: The data from your `getStaticProps` request
-            data={pageProps.data}
-            // clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
-            // branch={process.env.NEXT_PUBLIC_EDIT_BRANCH}
-            // organization={process.env.NEXT_PUBLIC_ORGANIZATION_NAME}
+            // Required: The query used in the pages' `getStaticProps` request
+            query={query}
+            // Required: The variables used in the pages' `getStaticProps` request
+            variables={variables}
+            // Required: The data used in the pages' `getStaticProps` request
+            data={data}
+            // True because we are currently developing the website locally
+            // TODO: Change to use ENV variable that checks environment (won't be true in production)
             isLocalClient={true}
-            // formifyCallback={({createForm, formConfig, skip}) => {
-            //   console.log(createForm)
-            //   console.log(formConfig)
-            //   console.log(skip)
-            //   return createForm(formConfig)
-            // }}
             {...pageProps}
           >
-              {(livePageProps: any) => (
-                <Layout navbarData={pageProps.navbar} footerData={pageProps.footer}>
+              {({query, variables, data, footer, navbar, seo, ...livePageProps}: any) => (
+                <Layout navbarData={navbar} footerData={footer}>
                     <Component {...livePageProps} />
                 </Layout>
               )}
           </TinaCMS>
         }
       >
-        <Layout navbarData={pageProps.navbar} footerData={pageProps.footer} >
+        <Layout navbarData={navbar} footerData={footer} >
           <Component {...pageProps} />
         </Layout>
       </TinaEditProvider>

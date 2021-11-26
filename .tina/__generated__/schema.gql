@@ -137,18 +137,18 @@ type NavbarConnection implements Connection {
   edges: [NavbarConnectionEdges]
 }
 
-type FooterNavSectionsLinks {
+type FooterNavigationRowLinks {
   label: String
   url: String
 }
 
-type FooterNavSections {
-  links: [FooterNavSectionsLinks]
+type FooterNavigationRow {
   title: String
+  links: [FooterNavigationRowLinks]
 }
 
 type Footer {
-  navSections: [FooterNavSections]
+  navigationRow: [FooterNavigationRow]
 }
 
 type FooterDocument implements Node & Document {
@@ -293,18 +293,18 @@ input NavbarMutation {
   navbarLinks: [NavbarNavbarLinksMutation]
 }
 
-input FooterNavSectionsLinksMutation {
+input FooterNavigationRowLinksMutation {
   label: String
   url: String
 }
 
-input FooterNavSectionsMutation {
-  links: [FooterNavSectionsLinksMutation]
+input FooterNavigationRowMutation {
   title: String
+  links: [FooterNavigationRowLinksMutation]
 }
 
 input FooterMutation {
-  navSections: [FooterNavSectionsMutation]
+  navigationRow: [FooterNavigationRowMutation]
 }
 
 input HomePageSectionsCarouselButtonMutation {

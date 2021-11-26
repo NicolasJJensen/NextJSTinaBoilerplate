@@ -53,9 +53,14 @@
         {
           "type": "object",
           "list": true,
-          "label": "Nav Sections",
-          "name": "navSections",
+          "label": "Navigation Row",
+          "name": "navigationRow",
           "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "name": "title"
+            },
             {
               "type": "object",
               "list": true,
@@ -73,11 +78,6 @@
                   "name": "url"
                 }
               ]
-            },
-            {
-              "type": "string",
-              "label": "Section Title",
-              "name": "title"
             }
           ]
         }

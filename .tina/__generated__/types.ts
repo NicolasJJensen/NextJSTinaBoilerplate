@@ -252,21 +252,21 @@ export type NavbarConnection = Connection & {
   edges?: Maybe<Array<Maybe<NavbarConnectionEdges>>>;
 };
 
-export type FooterNavSectionsLinks = {
-  __typename?: 'FooterNavSectionsLinks';
+export type FooterNavigationRowLinks = {
+  __typename?: 'FooterNavigationRowLinks';
   label?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
-export type FooterNavSections = {
-  __typename?: 'FooterNavSections';
-  links?: Maybe<Array<Maybe<FooterNavSectionsLinks>>>;
+export type FooterNavigationRow = {
+  __typename?: 'FooterNavigationRow';
   title?: Maybe<Scalars['String']>;
+  links?: Maybe<Array<Maybe<FooterNavigationRowLinks>>>;
 };
 
 export type Footer = {
   __typename?: 'Footer';
-  navSections?: Maybe<Array<Maybe<FooterNavSections>>>;
+  navigationRow?: Maybe<Array<Maybe<FooterNavigationRow>>>;
 };
 
 export type FooterDocument = Node & Document & {
@@ -499,18 +499,18 @@ export type NavbarMutation = {
   navbarLinks?: InputMaybe<Array<InputMaybe<NavbarNavbarLinksMutation>>>;
 };
 
-export type FooterNavSectionsLinksMutation = {
+export type FooterNavigationRowLinksMutation = {
   label?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
 };
 
-export type FooterNavSectionsMutation = {
-  links?: InputMaybe<Array<InputMaybe<FooterNavSectionsLinksMutation>>>;
+export type FooterNavigationRowMutation = {
   title?: InputMaybe<Scalars['String']>;
+  links?: InputMaybe<Array<InputMaybe<FooterNavigationRowLinksMutation>>>;
 };
 
 export type FooterMutation = {
-  navSections?: InputMaybe<Array<InputMaybe<FooterNavSectionsMutation>>>;
+  navigationRow?: InputMaybe<Array<InputMaybe<FooterNavigationRowMutation>>>;
 };
 
 export type HomePageSectionsCarouselButtonMutation = {
@@ -592,7 +592,7 @@ export type SeoPartsFragment = { __typename?: 'Seo', title?: string | null | und
 
 export type NavbarPartsFragment = { __typename?: 'Navbar', navbarLinks?: Array<{ __typename: 'NavbarNavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type FooterPartsFragment = { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+export type FooterPartsFragment = { __typename?: 'Footer', navigationRow?: Array<{ __typename: 'FooterNavigationRow', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavigationRowLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
 export type HomePagePartsFragment = { __typename?: 'HomePage', sections?: Array<{ __typename: 'HomePageSectionsCarousel', x?: number | null | undefined, y?: number | null | undefined, images?: Array<string | null | undefined> | null | undefined, mainText?: string | null | undefined, description?: string | null | undefined, delay?: number | null | undefined, button?: { __typename: 'HomePageSectionsCarouselButton', text?: string | null | undefined, url?: string | null | undefined } | null | undefined } | { __typename: 'HomePageSectionsTrustIcons', badges?: Array<{ __typename: 'HomePageSectionsTrustIconsBadges', icon?: string | null | undefined, text?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageSectionsSingleCollectionPreview', collection?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageSectionsMultipleCollectionsPreview', titleText?: string | null | undefined, collections?: Array<string | null | undefined> | null | undefined } | { __typename: 'HomePageSectionsSocialMediaIntegration', socialMedia?: string | null | undefined, numImages?: number | null | undefined } | { __typename: 'HomePageSectionsTestimonials', titleText?: string | null | undefined, userTestimonials?: Array<{ __typename: 'HomePageSectionsTestimonialsUserTestimonials', quote?: string | null | undefined, user?: string | null | undefined, website?: string | null | undefined, date?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'HomePageSectionsAlternatingImageBlocks', imageBlocks?: Array<{ __typename: 'HomePageSectionsAlternatingImageBlocksImageBlocks', image?: string | null | undefined, titleText?: string | null | undefined, paragraphs?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
@@ -625,12 +625,12 @@ export type GetFooterDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetFooterDocumentQuery = { __typename?: 'Query', getFooterDocument: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } };
+export type GetFooterDocumentQuery = { __typename?: 'Query', getFooterDocument: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', navigationRow?: Array<{ __typename: 'FooterNavigationRow', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavigationRowLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } };
 
 export type GetFooterListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', navSections?: Array<{ __typename: 'FooterNavSections', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavSectionsLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', navigationRow?: Array<{ __typename: 'FooterNavigationRow', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavigationRowLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
 export type GetHomePageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -661,14 +661,14 @@ export const NavbarPartsFragmentDoc = gql`
     `;
 export const FooterPartsFragmentDoc = gql`
     fragment FooterParts on Footer {
-  navSections {
+  navigationRow {
     __typename
+    title
     links {
       __typename
       label
       url
     }
-    title
   }
 }
     `;

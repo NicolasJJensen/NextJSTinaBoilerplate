@@ -23,7 +23,6 @@ export default function createFullQuery(query: string) {
 // This function takes a string with the name of a collection
 // Then it maps the data (from the structure of the above query) so the data is ready for page props
 function mapData<T>(data: BaseGQLType & any, otherDataName: string): {navbar: Navbar, footer: Footer } & T {
-  console.log(data)
   return {
     navbar: data.getNavbarDocument.data,
     footer: data.getFooterDocument.data,
