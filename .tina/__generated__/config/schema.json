@@ -20,9 +20,9 @@
     },
     {
       "path": "content/navbar",
+      "format": "json",
       "label": "Navbar",
       "name": "navbar",
-      "format": "json",
       "fields": [
         {
           "label": "Logo",
@@ -30,10 +30,10 @@
           "type": "string"
         },
         {
-          "list": true,
-          "label": "Links",
+          "label": "Navbar Links",
           "name": "links",
           "type": "object",
+          "list": true,
           "fields": [
             {
               "label": "Label",
@@ -44,6 +44,24 @@
               "label": "URL",
               "name": "url",
               "type": "string"
+            },
+            {
+              "label": "Dropdown Links",
+              "name": "nestedLinks",
+              "type": "object",
+              "list": true,
+              "fields": [
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "type": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "type": "string"
+                }
+              ]
             }
           ]
         },

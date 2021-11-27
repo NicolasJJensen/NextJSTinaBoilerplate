@@ -9,6 +9,11 @@ fragment NavbarParts on Navbar {
     __typename
     label
     url
+    nestedLinks {
+      __typename
+      label
+      url
+    }
   }
   fixed
   layout

@@ -233,10 +233,17 @@ export type SeoConnection = Connection & {
   edges?: Maybe<Array<Maybe<SeoConnectionEdges>>>;
 };
 
+export type NavbarLinksNestedLinks = {
+  __typename?: 'NavbarLinksNestedLinks';
+  label?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
 export type NavbarLinks = {
   __typename?: 'NavbarLinks';
   label?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
+  nestedLinks?: Maybe<Array<Maybe<NavbarLinksNestedLinks>>>;
 };
 
 export type Navbar = {
@@ -551,9 +558,15 @@ export type SeoMutation = {
   description?: InputMaybe<Scalars['String']>;
 };
 
+export type NavbarLinksNestedLinksMutation = {
+  label?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+};
+
 export type NavbarLinksMutation = {
   label?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
+  nestedLinks?: InputMaybe<Array<InputMaybe<NavbarLinksNestedLinksMutation>>>;
 };
 
 export type NavbarMutation = {
@@ -658,7 +671,7 @@ export type TestPageMutation = {
 
 export type SeoPartsFragment = { __typename?: 'Seo', title?: string | null | undefined, description?: string | null | undefined };
 
-export type NavbarPartsFragment = { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined };
+export type NavbarPartsFragment = { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined, nestedLinks?: Array<{ __typename: 'NavbarLinksNestedLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
 export type FooterPartsFragment = { __typename?: 'Footer', navigationRow?: Array<{ __typename: 'FooterNavigationRow', title?: string | null | undefined, links?: Array<{ __typename: 'FooterNavigationRowLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
@@ -683,12 +696,12 @@ export type GetNavbarDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetNavbarDocumentQuery = { __typename?: 'Query', getNavbarDocument: { __typename?: 'NavbarDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } } };
+export type GetNavbarDocumentQuery = { __typename?: 'Query', getNavbarDocument: { __typename?: 'NavbarDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined, nestedLinks?: Array<{ __typename: 'NavbarLinksNestedLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } };
 
 export type GetNavbarListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetNavbarListQuery = { __typename?: 'Query', getNavbarList: { __typename?: 'NavbarConnection', totalCount: number, edges?: Array<{ __typename?: 'NavbarConnectionEdges', node?: { __typename?: 'NavbarDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetNavbarListQuery = { __typename?: 'Query', getNavbarList: { __typename?: 'NavbarConnection', totalCount: number, edges?: Array<{ __typename?: 'NavbarConnectionEdges', node?: { __typename?: 'NavbarDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navbar', logo?: string | null | undefined, fixed?: boolean | null | undefined, layout?: string | null | undefined, links?: Array<{ __typename: 'NavbarLinks', label?: string | null | undefined, url?: string | null | undefined, nestedLinks?: Array<{ __typename: 'NavbarLinksNestedLinks', label?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
 export type GetFooterDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -739,6 +752,11 @@ export const NavbarPartsFragmentDoc = gql`
     __typename
     label
     url
+    nestedLinks {
+      __typename
+      label
+      url
+    }
   }
   fixed
   layout

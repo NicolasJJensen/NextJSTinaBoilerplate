@@ -110,9 +110,15 @@ type SeoConnection implements Connection {
   edges: [SeoConnectionEdges]
 }
 
+type NavbarLinksNestedLinks {
+  label: String
+  url: String
+}
+
 type NavbarLinks {
   label: String
   url: String
+  nestedLinks: [NavbarLinksNestedLinks]
 }
 
 type Navbar {
@@ -316,9 +322,15 @@ input SeoMutation {
   description: String
 }
 
+input NavbarLinksNestedLinksMutation {
+  label: String
+  url: String
+}
+
 input NavbarLinksMutation {
   label: String
   url: String
+  nestedLinks: [NavbarLinksNestedLinksMutation]
 }
 
 input NavbarMutation {
